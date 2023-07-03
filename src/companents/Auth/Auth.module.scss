@@ -1,0 +1,40 @@
+@import "src/index";
+
+.auth {
+  width: $size * 50;
+  margin: $size * 5 auto 0;
+  color: $colorBg;
+  font-size: $size * 2;
+  font-weight: bold;
+  text-align: center;
+  border: 1px solid $colorBg;
+  padding: $size * 2 $size $size * 3;
+
+  .isOld {
+    margin-bottom: $size * 2;
+  }
+
+  button {
+    width: $size * 22;
+    padding: $size 0;
+    margin: 0 $size;
+    border-radius: 10px;
+    border: none;
+    color: $colorDefault;
+    font-size: $size * 1.4;
+    transition: 0.2s;
+    user-select: none;
+
+    &:hover {
+      box-shadow: 0 0 7px 0 $colorBg;
+    }
+
+    &:nth-child(2) {
+      background-color: $colorActive2;
+    }
+
+    &:last-child {
+      background-color: $colorActive4;
+    }
+  }
+}

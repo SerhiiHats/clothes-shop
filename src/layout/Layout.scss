@@ -1,0 +1,81 @@
+@import "src/index";
+
+$widthNav: $size * 20;
+$heightHeader: $size * 10;
+$heightFooter: $size * 10;
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  height: $heightHeader;
+  background-color: $colorBg;
+  color: $colorDefault;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  h1 {
+    font-family: $fontDancingScript;
+    margin-left: $size;
+    font-size: $size * 5;
+  }
+
+  a{
+    color: $colorDefault;
+    text-decoration: none;
+  }
+
+  .active{
+    color: $colorActive
+  }
+
+  p{
+    margin-right: $size;
+    font-size: $size * 2;
+  }
+}
+
+.containerMain {
+  display: flex;
+
+  .nav {
+    width: $widthNav;
+    background-color: lightgray;
+    min-height: calc(100vh - $heightHeader - $heightFooter);
+
+    a{
+      //margin-left: $size;
+      color: $colorBg;
+      font-weight: bold;
+      text-decoration: none;
+
+      & p{
+        margin-top: $size;
+        margin-left: $size;
+        font-size: $size * 2;
+
+      }
+    }
+
+    .active{
+        color: $colorActive;
+      }
+  }
+
+  .main {
+    width: calc(100% - $widthNav);
+    background-color: $colorBg3;
+  }
+}
+
+.footer {
+  height: $heightFooter;
+  background-color: $colorBg;
+  color: $colorDefault;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

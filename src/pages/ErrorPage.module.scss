@@ -1,0 +1,35 @@
+@import "src/index";
+
+.error {
+  color: $colorAtt;
+  padding: $size * 2;
+  text-align: center;
+  font-size: $size * 2.5;
+  font-weight: bold;
+
+  svg {
+    fill: $colorAtt;
+    font-size: 40px;
+  }
+
+  h2 {
+    fill: $colorAtt;
+    font-size: 40px;
+  }
+
+  .goHome {
+    margin-top: $size * 3;
+
+    svg {
+      fill: $colorActive;
+      font-size: 30px;
+      margin: 0 $size * 0.5 0 $size;
+    }
+
+    a {
+      color: $colorActive;
+    }
+  }
+
+}
+
