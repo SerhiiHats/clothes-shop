@@ -1,0 +1,11 @@
+@import "src/index";
+
+.cartShopping{
+  font-size: $size * 2;
+  color: $colorDefault;
+  display: flex;
+
+  span{
+    margin-right: $size;
+  }
+}

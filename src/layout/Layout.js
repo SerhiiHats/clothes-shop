@@ -2,6 +2,7 @@ import React from 'react';
 import {Outlet} from "react-router";
 import "./Layout.scss"
 import {Link, NavLink} from "react-router-dom";
+import CartShopping from "../companents/CartShopping/CartShopping";
 
 const Layout = () => {
   return (
@@ -9,6 +10,13 @@ const Layout = () => {
       <header className={"header"}>
         <Link to={"/"}><h1>Clothes shop</h1></Link>
         <NavLink to={"/contacts"}><p>Контакти</p></NavLink>
+        <CartShopping/>
+        {/*<ul>*/}
+        {/*  <Icon type={iconTypes.cartShopping} size={"30px"} color={"#ffffff"} />*/}
+        {/*  Кошик*/}
+        {/*  <li>something1</li>*/}
+        {/*  <li>something1</li>*/}
+        {/*</ul>*/}
       </header>
       <div className={"containerMain"}>
         <nav className={"nav"}>
