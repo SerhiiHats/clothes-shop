@@ -9,14 +9,11 @@ const Layout = () => {
     <>
       <header className={"header"}>
         <Link to={"/"}><h1>Clothes shop</h1></Link>
-        <NavLink to={"/contacts"}><p>Контакти</p></NavLink>
-        <CartShopping/>
-        {/*<ul>*/}
-        {/*  <Icon type={iconTypes.cartShopping} size={"30px"} color={"#ffffff"} />*/}
-        {/*  Кошик*/}
-        {/*  <li>something1</li>*/}
-        {/*  <li>something1</li>*/}
-        {/*</ul>*/}
+        <nav>
+          <NavLink to={"/contacts"}><div>Контакти</div></NavLink>
+          <div><CartShopping/></div>
+        </nav>
+
       </header>
       <div className={"containerMain"}>
         <nav className={"nav"}>

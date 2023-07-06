@@ -24,19 +24,48 @@ $heightFooter: $size * 10;
     font-size: $size * 5;
   }
 
-  a{
+
+
+  a {
     color: $colorDefault;
     text-decoration: none;
   }
 
-  .active{
+  .active {
     color: $colorActive
   }
 
-  p{
-    margin-right: $size;
-    font-size: $size * 2;
+  nav{
+
+    display: flex;
+
+    div{
+      font-size: $size * 2;
+      border-left: 1px solid darken($colorBg, 10%);
+      padding: 36px;
+
+      &:nth-child(2){
+        padding: 32px;
+        margin-right: $size;
+        border-right: 1px solid darken($colorBg, 10%);
+      }
+
+      &:hover {
+        background-color: darken($colorBg, 10%);
+        transition: 0.2s;
+      }
+
+      ul {
+        visibility: hidden;
+      }
+
+      &:hover ul {
+        visibility: visible;
+        z-index: 100;
+      }
+    }
   }
+
 }
 
 .containerMain {
@@ -47,13 +76,13 @@ $heightFooter: $size * 10;
     background-color: lightgray;
     min-height: calc(100vh - $heightHeader - $heightFooter);
 
-    a{
+    a {
       //margin-left: $size;
       color: $colorBg;
       font-weight: bold;
       text-decoration: none;
 
-      & p{
+      & p {
         margin-top: $size;
         margin-left: $size;
         font-size: $size * 2;
@@ -61,9 +90,9 @@ $heightFooter: $size * 10;
       }
     }
 
-    .active{
-        color: $colorActive;
-      }
+    .active {
+      color: $colorActive;
+    }
   }
 
   .main {

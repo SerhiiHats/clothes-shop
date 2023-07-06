@@ -5,20 +5,24 @@ import styles from "./CartShopping.module.scss";
 
 const CartShopping = () => {
   return (
-    <ul className={styles.cartShopping}>
-      <span className={styles.cart}>
+    <>
+    <span className={styles.cart}>
         <span><Icon type={iconTypes.cartShopping} size={"30px"} color={"white"}/></span>
         <span>Кошик</span>
-      </span>
-
+    </span>
+    <ul className={styles.cartShopping}>
       <li>fgfdg</li>
       <li>jjyth</li>
       <li>QAA</li>
       <li>QAA</li>
+      <li>fasfa</li>
       <li>QAA</li>
+      <li>df</li>
+      <li>fef</li>
       <li>QAA</li>
-
+      <li>fsfas</li>
     </ul>
+    </>
   );
 };
 

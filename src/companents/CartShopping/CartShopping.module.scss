@@ -1,39 +1,30 @@
 @import "src/index";
 
+.cart {
+  //font-size: $size * 2;
+  //color: $colorDefault;
+  display: flex;
+
+  span {
+    margin-right: $size;
+  }
+}
 .cartShopping {
   position: absolute;
-  top: 36px;
-  right: 40px;
+  top: 100px;
+  right: 11px;
   list-style: none;
   display: flex;
   flex-direction: column;
-
-
-
-  .cart {
-    font-size: $size * 2;
-    color: $colorDefault;
-    display: flex;
-
-    span {
-      margin-right: $size;
-    }
-  }
+  background-color: lighten($colorBg3, 5%);
+  box-shadow: 0 0 10px 1px gray;
 
   li{
-    visibility: hidden;
-    opacity: 0;
-    width: 300px;
-    background-color: #94b21b;
-    //position: relative;
-    height: 50px;
+    width: 500px;
+    padding-top: 16px;
   }
 
   &:hover li{
-
-      visibility: visible;
-    pointer-events: all;
-    opacity: 0.7;
 
   }
 }
