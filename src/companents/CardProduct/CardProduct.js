@@ -6,12 +6,53 @@ const CardProduct = (props) => {
 
   const {id, image, category, title, description, price, rating, style} = props;
 
+  const userOrder = [{
+    "idProduct": id,
+    "titleProduct": title,
+    "price": price,
+    "quantity": 1,
+  }];
+
   let singleStyle = null;
   if (style && style === "singleStyle") {
     singleStyle = {
       maxWidth: "100%",
       display:"flex",
     }
+  }
+
+  const addToCart = (e) =>{
+    e.preventDefault();
+    e.stopPropagation();
+
+    const userOrderClothesShop = localStorage.getItem("userOrderClothesShop");
+
+    if (!userOrderClothesShop) {
+      localStorage.setItem("userOrderClothesShop", JSON.stringify(userOrder));
+      const test5 = localStorage.getItem("userOrderClothesShop");
+      console.log(JSON.parse(test5))
+      return;
+    }
+
+    const allProductOfUserOrder = JSON.parse(userOrderClothesShop);
+    let presentProductOfOrder = false;
+
+    allProductOfUserOrder.forEach(item => {
+      if (item.idProduct === id) {
+        item.quantity += 1;
+        presentProductOfOrder = true;
+        localStorage.setItem("userOrderClothesShop", JSON.stringify(allProductOfUserOrder));
+      }
+    });
+
+    if (!presentProductOfOrder) {
+      const margeOfProduct = allProductOfUserOrder.concat(userOrder);
+      localStorage.setItem("userOrderClothesShop", JSON.stringify(margeOfProduct));
+    }
+
+    const test1 = localStorage.getItem("userOrderClothesShop");
+    console.log(JSON.parse(test1))
+
   }
 
   return (
@@ -23,6 +64,7 @@ const CardProduct = (props) => {
           <p className={styles.description}>{description}</p>
           <p className={styles.wrapPrice}><span>price: <span className={styles.price}> {price} $ </span> </span>
             <span> rating: {rating.rate} count: {rating.count}</span></p>
+          <p className={styles.wrapBtn}><button onClick={(e)=>addToCart(e)}>Add to cart</button></p>
         </div>
     </div>
   );

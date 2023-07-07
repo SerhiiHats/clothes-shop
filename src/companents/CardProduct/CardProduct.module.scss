@@ -52,6 +52,25 @@
           color: $colorAtt;
         }
       }
+
+      .wrapBtn{
+        text-align: right;
+        margin-top: $size;
+
+        button{
+          padding: $size $size * 2;
+          background-color: $colorActive4;
+          border: none;
+          border-radius: $size * 0.5;
+          color: $colorDefault;
+          font-weight: bold;
+
+          &:hover {
+            background-color: $colorActive;
+            box-shadow: 0 0 7px 0 gray;
+          }
+        }
+      }
     }
 
 }
