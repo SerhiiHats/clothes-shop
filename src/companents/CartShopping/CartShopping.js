@@ -4,6 +4,7 @@ import {iconTypes} from "../../constants/icons";
 import styles from "./CartShopping.module.scss";
 import {useDispatch, useSelector} from "react-redux";
 import {setCountAC} from "../CardProduct/countAction";
+import ItemInCart from "../ItemInCart/ItemInCart";
 
 const CartShopping = () => {
   const userOrderClothesShop = JSON.parse(localStorage.getItem("userOrderClothesShop"));
@@ -50,7 +51,6 @@ const CartShopping = () => {
         <span><Icon type={iconTypes.cartShopping} size={"30px"} color={"white"}/></span>
         <span>Кошик</span>
       {countProduct ? <span className={styles.countProducts}>{countProduct}</span> : ""}
-
     </span>
       <ul className={styles.cartShopping}>
         {order.length === 0 ? <li>
@@ -58,30 +58,19 @@ const CartShopping = () => {
           </li>
           : userOrderClothesShop.map(product => {
             console.log(product)
-            return (
-              <li key={product.idProduct}>
-                <div key={product.idProduct}>
-                  <p className={styles.wrapTitleProduct}>
-                    <span>{product.titleProduct}</span>
-                    <span onClick={() => handleCountProduct(product.idProduct, product.quantity, 0)}><Icon type={iconTypes.delete} size={"22px"} color={"#171B1E"}/></span></p>
-                  <p>{product.quantity}<span> од.</span></p>
-                  <p>{product.price}<span> грн.</span></p>
-                  <p className={styles.wrapTotalPrice}>
-                    <span className={styles.wrapButtons}>
-                      <button className={styles.btnSetCount}
-                          onClick={() => handleCountProduct(product.idProduct, product.quantity, -1)}>-</button>
-                      <span className={styles.quantity}>{product.quantity}</span>
-                      <button className={styles.btnSetCount}
-                          onClick={() => handleCountProduct(product.idProduct, product.quantity, +1)}>+</button>
-                      </span>
-                      <span className={styles.totalPrice}>{Math.round(product.price * product.quantity * 100) / 100} грн.</span>
-                  </p>
-                </div>
-                <hr/>
-              </li>)
+            return (<ItemInCart
+                key={product.idProduct}
+                idProduct={product.idProduct}
+                titleProduct={product.titleProduct}
+                quantity={product.quantity}
+                price={product.price}
+                handleCountProduct={(id, count, k) => handleCountProduct(id, count, k)}
+              />)
           })}
-        <li>totalPrice: {totalPrice} грн.</li>
-        {countProduct ? <li><button className={styles.btnShopping}>Оформити замовлення</button></li> : ""}
+        <li>Total price: {totalPrice} грн.</li>
+        {countProduct ? <li>
+          <button className={styles.btnShopping}>Оформити замовлення</button>
+        </li> : ""}
       </ul>
     </>);
 };

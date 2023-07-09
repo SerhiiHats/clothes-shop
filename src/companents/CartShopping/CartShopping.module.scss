@@ -41,62 +41,6 @@
     width: 500px;
     padding-top: 16px;
 
-    .wrapTitleProduct {
-      display: flex;
-      justify-content: space-between;
-
-      svg{
-
-        &:hover{
-          cursor: pointer;
-        }
-      }
-
-
-    }
-
-    .wrapTotalPrice {
-      display: flex;
-      //justify-content: space-around;
-      margin: $size 0;
-
-      .wrapButtons {
-        border-radius: 5px;
-        margin: 0 $size * 10;
-
-        .btnSetCount {
-          width: $size * 3.5;
-          height: $size * 3.5;
-          border-radius: 5px;
-          border: none;
-          background-color: $colorActive4;
-          user-select: none;
-          font-size: $size * 1.8;
-
-          &:hover {
-            background-color: darken($colorActive4, 10%);
-            cursor: pointer;
-          }
-        }
-
-        .quantity {
-          display: inline-block;
-          min-width: $size * 4;
-          text-align: center;
-          color: $colorBg2;
-          font-size: $size * 1.7;
-        }
-      }
-
-      .totalPrice {
-        color: $colorBg2;
-        font-weight: bold;
-      }
-    }
-    &:hover li {
-
-    }
-
     .btnShopping{
       width: 100%;
       padding: $size 0;
