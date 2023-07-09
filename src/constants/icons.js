@@ -28,5 +28,6 @@ export const iconTypes = {
   "film": 'film',
   "cancelCircle": 'cancelCircle',
   "cartShopping": 'cartShopping',
+  "delete": 'delete',
 
 }

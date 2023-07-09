@@ -10,7 +10,7 @@
     margin-right: $size;
   }
 
-  .countProducts{
+  .countProducts {
     display: inline-block;
     width: 20px;
     text-align: center;
@@ -25,6 +25,7 @@
   }
 
 }
+
 .cartShopping {
   position: absolute;
   top: 100px;
@@ -36,16 +37,32 @@
   background-color: lighten($colorBg3, 5%);
   box-shadow: 0 0 10px 1px gray;
 
-  li{
+  li {
     width: 500px;
     padding-top: 16px;
 
+    .wrapTitleProduct {
+      display: flex;
+      justify-content: space-between;
+
+      svg{
+        fill: #94b21b;
+        &:hover{
+          cursor: pointer;
+        }
+      }
+
+
+    }
+
     .wrapTotalPrice {
       display: flex;
-      justify-content: space-around;
+      //justify-content: space-around;
+      margin: $size 0;
 
       .wrapButtons {
         border-radius: 5px;
+        margin: 0 $size * 10;
 
         .btnSetCount {
           width: $size * 3.5;
@@ -53,9 +70,12 @@
           border-radius: 5px;
           border: none;
           background-color: $colorActive4;
+          user-select: none;
+          font-size: $size * 1.8;
 
-          &:hover{
-            background-color: darken($colorActive4, 10%) ;
+          &:hover {
+            background-color: darken($colorActive4, 10%);
+            cursor: pointer;
           }
         }
 
@@ -63,6 +83,8 @@
           display: inline-block;
           min-width: $size * 4;
           text-align: center;
+          color: $colorBg2;
+          font-size: $size * 1.7;
         }
       }
 
@@ -73,7 +95,7 @@
     }
   }
 
-  &:hover li{
+  &:hover li {
 
   }
 }

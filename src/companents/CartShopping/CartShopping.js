@@ -61,10 +61,12 @@ const CartShopping = () => {
             return (
               <li key={product.idProduct}>
                 <div key={product.idProduct}>
-                  <p>{product.titleProduct}</p>
+                  <p className={styles.wrapTitleProduct}>
+                    <span>{product.titleProduct}</span>
+                    <span onClick={() => handleCountProduct(product.idProduct, 1, -1)}><Icon type={iconTypes.delete} size={"22px"} color={"#171B1E"}/></span></p>
                   <p>{product.quantity}<span> од.</span></p>
+
                   <p>{product.price}<span> грн.</span></p>
-                  {/*<p>{Math.round(product.price * product.quantity * 100) / 100}<span> грн.</span></p>*/}
                   <p className={styles.wrapTotalPrice}>
                     <span className={styles.wrapButtons}>
                       <button className={styles.btnSetCount}
