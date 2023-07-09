@@ -2,7 +2,7 @@ import styles from "./CardProduct.module.scss"
 
 import React from 'react';
 import {useDispatch} from "react-redux";
-import {incAC} from "./countAction";
+import { setCountAC } from "./countAction";
 
 const CardProduct = (props) => {
 
@@ -33,9 +33,7 @@ const CardProduct = (props) => {
 
     if (!userOrderClothesShop) {
       localStorage.setItem("userOrderClothesShop", JSON.stringify(userOrder));
-      const test5 = localStorage.getItem("userOrderClothesShop");
-      console.log(JSON.parse(test5));
-      dispatch(incAC());
+      dispatch(setCountAC(1));
       return;
     }
 
@@ -46,19 +44,16 @@ const CardProduct = (props) => {
       if (item.idProduct === id) {
         item.quantity += 1;
         presentProductOfOrder = true;
-        dispatch(incAC());
+        dispatch(setCountAC(1));
         localStorage.setItem("userOrderClothesShop", JSON.stringify(allProductOfUserOrder));
       }
     });
 
     if (!presentProductOfOrder) {
       const margeOfProduct = allProductOfUserOrder.concat(userOrder);
-      dispatch(incAC());
+      dispatch(setCountAC(1));
       localStorage.setItem("userOrderClothesShop", JSON.stringify(margeOfProduct));
     }
-
-    const test1 = localStorage.getItem("userOrderClothesShop");
-    console.log(JSON.parse(test1));
   }
 
   return (

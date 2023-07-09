@@ -3,7 +3,7 @@ import {Icon} from "../Icon/Icon";
 import {iconTypes} from "../../constants/icons";
 import styles from "./CartShopping.module.scss";
 import {useDispatch, useSelector} from "react-redux";
-import {decAC, incAC} from "../CardProduct/countAction";
+import {setCountAC} from "../CardProduct/countAction";
 
 const CartShopping = () => {
   const userOrderClothesShop = JSON.parse(localStorage.getItem("userOrderClothesShop"));
@@ -26,11 +26,11 @@ const CartShopping = () => {
 
   const handleCountProduct = (id, count, k) => {
 
-    if (count === 1 && k === -1) {
+    if ((count === 1 && k === -1) || k === 0) {
       const tempProducts = order.filter(product => product.idProduct !== id);
       localStorage.setItem("userOrderClothesShop", JSON.stringify(tempProducts));
       setOrder(JSON.parse(localStorage.getItem("userOrderClothesShop")));
-      dispatch(decAC());
+      dispatch(setCountAC(-1 * count));
       return;
     }
 
@@ -41,7 +41,7 @@ const CartShopping = () => {
     })
     localStorage.setItem("userOrderClothesShop", JSON.stringify(tempProducts));
     setOrder(JSON.parse(localStorage.getItem("userOrderClothesShop")));
-    k === 1 ? dispatch(incAC()) : dispatch(decAC());
+    k === 1 ? dispatch(setCountAC(1)) : dispatch(setCountAC(-1));
   }
 
   return (
@@ -63,9 +63,8 @@ const CartShopping = () => {
                 <div key={product.idProduct}>
                   <p className={styles.wrapTitleProduct}>
                     <span>{product.titleProduct}</span>
-                    <span onClick={() => handleCountProduct(product.idProduct, 1, -1)}><Icon type={iconTypes.delete} size={"22px"} color={"#171B1E"}/></span></p>
+                    <span onClick={() => handleCountProduct(product.idProduct, product.quantity, 0)}><Icon type={iconTypes.delete} size={"22px"} color={"#171B1E"}/></span></p>
                   <p>{product.quantity}<span> од.</span></p>
-
                   <p>{product.price}<span> грн.</span></p>
                   <p className={styles.wrapTotalPrice}>
                     <span className={styles.wrapButtons}>
@@ -82,6 +81,7 @@ const CartShopping = () => {
               </li>)
           })}
         <li>totalPrice: {totalPrice} грн.</li>
+        {countProduct ? <li><button className={styles.btnShopping}>Оформити замовлення</button></li> : ""}
       </ul>
     </>);
 };

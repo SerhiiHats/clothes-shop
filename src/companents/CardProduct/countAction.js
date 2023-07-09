@@ -1,10 +1,8 @@
-export const INCREMENT = "INCREMENT";
-export const DECREMENT = "DECREMENT";
+export const SET_COUNT = "SET_COUNT";
 
-export const incAC = () =>{
-  return {type: INCREMENT};
-}
-
-export const decAC = () =>{
-  return {type: DECREMENT};
-}
+export const setCountAC = (value) =>{
+  return {
+    type: SET_COUNT,
+    payload: value,
+  };
+};

@@ -1,16 +1,10 @@
 import initialStore from "../../redux/initialStore";
-import {DECREMENT, INCREMENT} from "./countAction";
+import { SET_COUNT } from "./countAction";
 
 const countReducer = (count = initialStore.count, action)=>{
   switch (action.type) {
-    case INCREMENT:{
-      return count + 1;
-    }
-    case DECREMENT:{
-      if (count < 1){
-        return 0;
-      }
-      return count - 1;
+    case SET_COUNT: {
+      return count + action.payload;
     }
     default: {
       return count;

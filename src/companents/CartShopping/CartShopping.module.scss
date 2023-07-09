@@ -46,7 +46,7 @@
       justify-content: space-between;
 
       svg{
-        fill: #94b21b;
+
         &:hover{
           cursor: pointer;
         }
@@ -93,9 +93,28 @@
         font-weight: bold;
       }
     }
+    &:hover li {
+
+    }
+
+    .btnShopping{
+      width: 100%;
+      padding: $size 0;
+      background-color: $colorActive4;
+      color: $colorDefault;
+      font-size: $size * 1.7;
+      font-weight: bold;
+      text-align: center;
+      border: none;
+      border-radius: 5px;
+
+      &:hover{
+        background-color: $colorActive;
+        box-shadow: 0 0 7px 0 gray;
+        cursor: pointer;
+      }
+    }
+
   }
 
-  &:hover li {
-
-  }
 }
