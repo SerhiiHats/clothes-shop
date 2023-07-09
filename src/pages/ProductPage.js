@@ -20,13 +20,12 @@ const ProductPage = () => {
         .then(response => {
           setProduct(response.data.filter(item => item.category === category))
         })
-        .catch(error=>{
+        .catch(error => {
           console.log(error)
           navigation('/error');
         });
       setVisible(false);
     }, [location.state.items]);
-
 
     const handleClickCard = (id) => {
       navigation(`/product/${id}`);
@@ -36,7 +35,7 @@ const ProductPage = () => {
     return (
       <div className={styles.containerProduct}>
         {visible && <div className={styles.wrapSpinner}>
-          <RotatingLines strokeColor="grey" strokeWidth="5" animationDuration="0.75"  width="96" visible={true}/>
+          <RotatingLines strokeColor="grey" strokeWidth="5" animationDuration="0.75" width="96" visible={true}/>
         </div>}
         {product && product.map(item => {
           return (
@@ -47,8 +46,8 @@ const ProductPage = () => {
                            title={item.title}
                            description={item.description}
                            price={item.price} rating={item.rating}/>
-           </div>
-        )
+            </div>
+          )
         })}
       </div>
     );

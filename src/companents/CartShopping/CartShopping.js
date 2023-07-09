@@ -59,13 +59,13 @@ const CartShopping = () => {
           : userOrderClothesShop.map(product => {
             console.log(product)
             return (<ItemInCart
-                key={product.idProduct}
-                idProduct={product.idProduct}
-                titleProduct={product.titleProduct}
-                quantity={product.quantity}
-                price={product.price}
-                handleCountProduct={(id, count, k) => handleCountProduct(id, count, k)}
-              />)
+              key={product.idProduct}
+              idProduct={product.idProduct}
+              titleProduct={product.titleProduct}
+              quantity={product.quantity}
+              price={product.price}
+              handleCountProduct={(id, count, k) => handleCountProduct(id, count, k)}
+            />)
           })}
         <li>Total price: {totalPrice} грн.</li>
         {countProduct ? <li>

@@ -6,7 +6,6 @@ const MainPage = () => {
 
   const navigation = useNavigate();
 
-
   const handleStartClick = () => {
     navigation("product/for_men", {state: {items: "men's clothing"}});
   };

@@ -10,7 +10,7 @@ export const Icon = (props) => {
   const {className, color, size, ...rest} = props;
 
   let styles = null;
-  if(color && size){
+  if (color && size) {
     styles = {fill: color, fontSize: size};
   }
 

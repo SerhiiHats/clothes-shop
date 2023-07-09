@@ -1,8 +1,7 @@
-import styles from "./CardProduct.module.scss"
-
+import styles from "./CardProduct.module.scss";
 import React from 'react';
 import {useDispatch} from "react-redux";
-import { setCountAC } from "./countAction";
+import {setCountAC} from "./countAction";
 
 const CardProduct = (props) => {
 
@@ -21,11 +20,11 @@ const CardProduct = (props) => {
   if (style && style === "singleStyle") {
     singleStyle = {
       maxWidth: "100%",
-      display:"flex",
+      display: "flex",
     }
   }
 
-  const addToCart = (e) =>{
+  const addToCart = (e) => {
     e.preventDefault();
     e.stopPropagation();
 
@@ -58,15 +57,17 @@ const CardProduct = (props) => {
 
   return (
     <div style={singleStyle} key={`item${id}`} id={`item${id}`} className={styles.cardProduct}>
-        <img style={style && {width: "50%"}} className={styles.clothesImg} src={image} alt={category} title={title}/>
-        <div className={styles.wrapCategory}>
-          <h2 className={styles.category}>category: {category}</h2>
-          <h3 className={styles.title}>{title}</h3>
-          <p className={styles.description}>{description}</p>
-          <p className={styles.wrapPrice}><span>price: <span className={styles.price}> {price} $ </span> </span>
-            <span> rating: {rating.rate} count: {rating.count}</span></p>
-          <p className={styles.wrapBtn}><button onClick={(e)=>addToCart(e)}>Add to cart</button></p>
-        </div>
+      <img style={style && {width: "50%"}} className={styles.clothesImg} src={image} alt={category} title={title}/>
+      <div className={styles.wrapCategory}>
+        <h2 className={styles.category}>category: {category}</h2>
+        <h3 className={styles.title}>{title}</h3>
+        <p className={styles.description}>{description}</p>
+        <p className={styles.wrapPrice}><span>price: <span className={styles.price}> {price} $ </span> </span>
+          <span> rating: {rating.rate} count: {rating.count}</span></p>
+        <p className={styles.wrapBtn}>
+          <button onClick={(e) => addToCart(e)}>Add to cart</button>
+        </p>
+      </div>
     </div>
   );
 };
