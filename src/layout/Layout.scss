@@ -25,7 +25,6 @@ $heightFooter: $size * 10;
   }
 
 
-
   a {
     color: $colorDefault;
     text-decoration: none;
@@ -35,20 +34,22 @@ $heightFooter: $size * 10;
     color: $colorActive
   }
 
-  nav{
+  nav {
 
     display: flex;
 
-    div{
+    .contact {
       font-size: $size * 2;
       border-left: 1px solid darken($colorBg, 10%);
       padding: 36px;
+    }
 
-      &:nth-child(2){
-        padding: 32px;
-        margin-right: $size;
-        border-right: 1px solid darken($colorBg, 10%);
-      }
+    .wrapCart {
+      font-size: $size * 2;
+      padding: 32px;
+      margin-right: $size;
+      border-left: 1px solid darken($colorBg, 10%);
+      border-right: 1px solid darken($colorBg, 10%);
 
       &:hover {
         background-color: darken($colorBg, 10%);
@@ -57,13 +58,16 @@ $heightFooter: $size * 10;
 
       ul {
         visibility: hidden;
+        //display: none;
       }
 
       &:hover ul {
         visibility: visible;
+        //display: unset;
         z-index: 100;
       }
     }
+
   }
 
 }
@@ -77,7 +81,6 @@ $heightFooter: $size * 10;
     min-height: calc(100vh - $heightHeader - $heightFooter);
 
     a {
-      //margin-left: $size;
       color: $colorBg;
       font-weight: bold;
       text-decoration: none;

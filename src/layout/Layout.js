@@ -10,8 +10,8 @@ const Layout = () => {
       <header className={"header"}>
         <Link to={"/"}><h1>Clothes shop</h1></Link>
         <nav>
-          <NavLink to={"/contacts"}><div>Контакти</div></NavLink>
-          <div><CartShopping/></div>
+          <NavLink to={"/contacts"}><div className={"contact"}>Контакти</div></NavLink>
+          <div className={"wrapCart"}><CartShopping/></div>
         </nav>
 
       </header>
