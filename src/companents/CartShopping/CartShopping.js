@@ -50,12 +50,11 @@ const CartShopping = () => {
     <span className={styles.cart}>
         <span><Icon type={iconTypes.cartShopping} size={"30px"} color={"white"}/></span>
         <span>Кошик</span>
-      {countProduct ? <span className={styles.countProducts}>{countProduct}</span> : ""}
+      {countProduct !== 0 && (<span className={styles.countProducts}>{countProduct}</span>)}
     </span>
       <ul className={styles.cartShopping}>
-        {order.length === 0 ? <li>
-            <div>Cart is empty</div>
-          </li>
+        {order.length === 0 ?
+          (<li><div>Cart is empty</div></li>)
           : userOrderClothesShop.map(product => {
             console.log(product)
             return (<ItemInCart
@@ -68,9 +67,7 @@ const CartShopping = () => {
             />)
           })}
         <li>Total price: {totalPrice} грн.</li>
-        {countProduct ? <li>
-          <button className={styles.btnShopping}>Оформити замовлення</button>
-        </li> : ""}
+        {countProduct !== 0 && (<li><button className={styles.btnShopping}>Оформити замовлення</button></li>)}
       </ul>
     </>);
 };
