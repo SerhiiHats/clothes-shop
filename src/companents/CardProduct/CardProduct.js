@@ -1,13 +1,25 @@
 import styles from "./CardProduct.module.scss";
-import React from 'react';
-import {useDispatch} from "react-redux";
-import {setCountAC} from "./countAction";
+import React, {useEffect} from 'react';
+import {useDispatch, useSelector} from "react-redux";
+import {setCountAC, setItemCountAC} from "./countAction";
+import store from "../../redux/configStore";
 
 const CardProduct = (props) => {
 
   const {id, image, category, title, description, price, rating, style} = props;
 
   const dispatch = useDispatch();
+
+  const mapQuantity = useSelector(store => store.mapQuantity);
+
+  useEffect(()=>{
+
+    if (mapQuantity.has(id)){
+      console.log("id : " + id + " , значение по ключу = " + mapQuantity.get(id))
+    } else {
+        console.log("id : " + id + " , значение по ключу отсутствует :" + mapQuantity.get(id))
+    }
+  },[])
 
   const userOrder = [{
     "idProduct": id,
@@ -33,6 +45,7 @@ const CardProduct = (props) => {
     if (!userOrderClothesShop) {
       localStorage.setItem("userOrderClothesShop", JSON.stringify(userOrder));
       dispatch(setCountAC(1));
+      dispatch(setItemCountAC(id, 1));
       return;
     }
 
@@ -44,6 +57,7 @@ const CardProduct = (props) => {
         item.quantity += 1;
         presentProductOfOrder = true;
         dispatch(setCountAC(1));
+        dispatch(setItemCountAC(id, 1));
         localStorage.setItem("userOrderClothesShop", JSON.stringify(allProductOfUserOrder));
       }
     });
@@ -51,6 +65,7 @@ const CardProduct = (props) => {
     if (!presentProductOfOrder) {
       const margeOfProduct = allProductOfUserOrder.concat(userOrder);
       dispatch(setCountAC(1));
+      dispatch(setItemCountAC(id, 1));
       localStorage.setItem("userOrderClothesShop", JSON.stringify(margeOfProduct));
     }
   }
@@ -65,7 +80,7 @@ const CardProduct = (props) => {
         <p className={styles.wrapPrice}><span>price: <span className={styles.price}> {price} $ </span> </span>
           <span> rating: {rating.rate} count: {rating.count}</span></p>
         <p className={styles.wrapBtn}>
-          <button onClick={(e) => addToCart(e)}>Add to cart</button>
+          {mapQuantity.has(id) ? <button onClick={(e) => addToCart(e)}>In cart {mapQuantity.get(id)}</button> : <button onClick={(e) => addToCart(e)}>Add to cart</button>}
         </p>
       </div>
     </div>
