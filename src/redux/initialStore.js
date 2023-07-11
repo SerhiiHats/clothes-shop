@@ -1,5 +1,5 @@
 const getCount = ()=>{
-  const userOrderClothesShop = JSON.parse(localStorage.getItem("userOrderClothesShop")) || [];
+  const userOrderClothesShop = JSON.parse(localStorage.getItem("userOrderClothesShop") || []) ;
   let tempCount = 0;
   let tempItemCount = {};
   let mapCount = new Map();

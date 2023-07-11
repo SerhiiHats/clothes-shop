@@ -5,9 +5,9 @@ import {SET_ITEM_COUNT} from "./countAction";
 const mapQuantityReducer = (mapQuantity = initialStore.mapQuantity, action) => {
   switch (action.type) {
     case SET_ITEM_COUNT: {
-
-      const newMapQuantity = new Map();
-      mapQuantity.forEach((key, value) => {
+      console.log(mapQuantity)
+      let newMapQuantity = new Map();
+      mapQuantity.forEach((value, key, map) => {
         newMapQuantity.set(key, value)
       });
       console.log(newMapQuantity)
