@@ -1,10 +1,9 @@
-import React from 'react';
 import initialStore from "../../redux/initialStore";
-import {SET_ITEM_COUNT} from "./countAction";
+import {SET_MAP_COUNT} from "./countAction";
 
-const ItemCountReducer = (quantityItems = initialStore.quantityItems, action) => {
+const itemCountReducer = (quantityItems = initialStore.quantityItems, action) => {
   switch (action.type) {
-    case SET_ITEM_COUNT: {
+    case SET_MAP_COUNT: {
       // if (action.payload.id){
         const tempQuantityItems = {...quantityItems};
         tempQuantityItems[action.payload.id] = quantityItems[action.payload.id] + action.payload.quantity;
@@ -18,4 +17,4 @@ const ItemCountReducer = (quantityItems = initialStore.quantityItems, action) =>
 
 };
 
-export default ItemCountReducer;
+export default itemCountReducer;

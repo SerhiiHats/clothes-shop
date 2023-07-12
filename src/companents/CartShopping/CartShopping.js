@@ -3,7 +3,7 @@ import {Icon} from "../Icon/Icon";
 import {iconTypes} from "../../constants/icons";
 import styles from "./CartShopping.module.scss";
 import {useDispatch, useSelector} from "react-redux";
-import {setCountAC} from "../CardProduct/countAction";
+import {setCountAC, setMapCountAC} from "../CardProduct/countAction";
 import ItemInCart from "../ItemInCart/ItemInCart";
 
 const CartShopping = () => {
@@ -16,7 +16,6 @@ const CartShopping = () => {
   useEffect(() => {
     const tempOrder = JSON.parse(localStorage.getItem("userOrderClothesShop")) || [];
     let tempTotalPrice = 0;
-    console.log(tempOrder)
     tempOrder.forEach(element => {
       tempTotalPrice += element.price * element.quantity;
     });
@@ -32,6 +31,7 @@ const CartShopping = () => {
       localStorage.setItem("userOrderClothesShop", JSON.stringify(tempProducts));
       setOrder(JSON.parse(localStorage.getItem("userOrderClothesShop")));
       dispatch(setCountAC(-1 * count));
+      dispatch(setMapCountAC(id, -1 * count))
       return;
     }
 
@@ -42,7 +42,14 @@ const CartShopping = () => {
     })
     localStorage.setItem("userOrderClothesShop", JSON.stringify(tempProducts));
     setOrder(JSON.parse(localStorage.getItem("userOrderClothesShop")));
-    k === 1 ? dispatch(setCountAC(1)) : dispatch(setCountAC(-1));
+
+    if(k===1){
+      dispatch(setCountAC(1));
+      dispatch(setMapCountAC(id, 1));
+    } else {
+      dispatch(setCountAC(-1));
+      dispatch(setMapCountAC(id, -1));
+    }
   }
 
   return (

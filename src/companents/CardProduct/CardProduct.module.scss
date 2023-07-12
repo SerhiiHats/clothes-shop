@@ -58,17 +58,51 @@
         margin-top: $size;
 
         button{
-          padding: $size $size * 2;
+          width: $size * 10;
+          padding: $size 0;
           background-color: $colorActive4;
-          border: none;
+          border: 2px solid $colorActive4;
           border-radius: $size * 0.5;
           color: $colorDefault;
           font-weight: bold;
+          position: relative;
+
+          .countProduct{
+            display: inline-block;
+            width: 20px;
+            text-align: center;
+            color: white;
+            //background-color: red;
+            background-color: $colorActive4;
+            border-radius: 50%;
+            padding: 4px 5px;
+            position: absolute;
+            top: -15px;
+            right: -7px;
+            font-size: 16px;
+          }
+        }
+
+        .btnDefault{
+          background-color: $colorActive4;
+          color: $colorDefault;
 
           &:hover {
             background-color: $colorActive;
+            border: 2px solid $colorActive;
             box-shadow: 0 0 7px 0 gray;
             cursor: pointer;
+          }
+        }
+
+        .btnActive{
+          background-color: $colorDefault;
+          color: $colorDefault2;
+
+          &:hover {
+            background-color: $colorActive1;
+            cursor: pointer;
+            color: $colorDefault2;
           }
         }
       }

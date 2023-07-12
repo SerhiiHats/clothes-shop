@@ -1,5 +1,7 @@
 export const SET_COUNT = "SET_COUNT";
 
+export const SET_MAP_COUNT = "SET_MAP_COUNT";
+
 export const SET_ITEM_COUNT = "SET_ITEM_COUNT";
 
 export const setCountAC = (value) => {
@@ -9,9 +11,9 @@ export const setCountAC = (value) => {
   };
 };
 
-export const setItemCountAC = (id, quantity) => {
+export const setMapCountAC = (id, quantity) => {
   return {
-    type: SET_ITEM_COUNT,
+    type: SET_MAP_COUNT,
     payload: {id, quantity},
   };
 };
