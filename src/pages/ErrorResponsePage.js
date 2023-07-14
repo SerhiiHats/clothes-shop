@@ -1,10 +1,10 @@
 import React from 'react';
-import styles from "./ErrorPage.module.scss";
+import styles from "./ErrorResponsePage.module.scss";
 import {Link} from "react-router-dom";
 import {Icon} from "../companents/Icon/Icon";
 import {iconTypes} from "../constants/icons";
 
-const ErrorPage = () => {
+const ErrorResponsePage = () => {
   return (
     <div className={styles.error}>
       <Icon type={iconTypes.cancelCircle}/>
@@ -15,4 +15,4 @@ const ErrorPage = () => {
   );
 };
 
-export default ErrorPage;
+export default ErrorResponsePage;

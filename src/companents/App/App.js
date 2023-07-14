@@ -6,7 +6,7 @@ import ProductPage from "../../pages/ProductPage";
 import Contacts from "../../pages/Contacts";
 import SingleProductPage from "../../pages/SingleProductPage";
 import NotfoundPage from "../../pages/NotfoundPage";
-import ErrorPage from "../../pages/ErrorPage";
+import ErrorResponsePage from "../../pages/ErrorResponsePage";
 import Auth from "../Auth/Auth";
 import RequireAuth from "../hoc/requireAuth";
 
@@ -38,7 +38,7 @@ function App() {
           </RequireAuth>
         }/>
         <Route path={"*"} element={<NotfoundPage/>}/>
-        <Route path={"/error"} element={<ErrorPage/>}/>
+        <Route path={"/error"} element={<ErrorResponsePage/>}/>
         <Route path={"/auth"} element={<Auth/>}/>
       </Route>
     </Routes>
