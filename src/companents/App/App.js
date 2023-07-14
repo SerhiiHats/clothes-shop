@@ -9,13 +9,18 @@ import NotfoundPage from "../../pages/NotfoundPage";
 import ErrorResponsePage from "../../pages/ErrorResponsePage";
 import Auth from "../Auth/Auth";
 import RequireAuth from "../hoc/requireAuth";
+import ErrorBoundary from "../ErrorBoundary/ErrorBoundary";
 
 function App() {
   return (
     <Routes>
       <Route path={"/"} element={<Layout/>}>
         <Route index element={<MainPage/>}/>
-        <Route path={"/product/:id"} element={<SingleProductPage/>}/>
+        <Route path={"/product/:id"} element={
+          <ErrorBoundary>
+            <SingleProductPage/>
+          </ErrorBoundary>
+          }/>
         <Route path={"/contacts"} element={<Contacts/>}/>
         <Route path={"/product/for_men"} element={
           <RequireAuth>
