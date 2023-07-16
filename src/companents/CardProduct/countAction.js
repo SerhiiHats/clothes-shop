@@ -2,8 +2,6 @@ export const SET_COUNT = "SET_COUNT";
 
 export const SET_MAP_COUNT = "SET_MAP_COUNT";
 
-export const SET_ITEM_COUNT = "SET_ITEM_COUNT";
-
 export const setCountAC = (value) => {
   return {
     type: SET_COUNT,
