@@ -17,10 +17,16 @@ li {
   .wrapTotalPrice {
     display: flex;
     margin: $size 0;
+    //justify-content: space-between;
 
+    .price {
+      width: 40%;
+      color: $colorBg2;
+    }
     .wrapButtons {
       border-radius: 5px;
-      margin: 0 $size * 10;
+      //margin: 0 $size * 10;
+      width: 30%;
 
       .btnSetCount {
         width: $size * 3.5;
@@ -49,6 +55,8 @@ li {
     .totalPrice {
       color: $colorBg2;
       font-weight: bold;
+      text-align: right;
+      width: 30%;
     }
   }
   &:hover li {
