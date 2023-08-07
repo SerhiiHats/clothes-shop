@@ -13,6 +13,7 @@
     box-shadow: 0 0 $size $size * 0.1 gray;
   }
 
+
   img {
     width: 93%;
     aspect-ratio: 10 / 12;
@@ -34,12 +35,16 @@
       font-weight: 500;
       font-size: $size * 2;
       color: $colorActive;
+      height: 60px;
+      overflow: hidden;
     }
 
     .description {
       margin: $size 0 $size * 0.2 0;
       font-size: $size * 1.4;
       font-weight: 400;
+      height: 100px;
+      overflow: hidden;
     }
 
     .wrapPrice {

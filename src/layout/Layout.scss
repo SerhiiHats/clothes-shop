@@ -104,6 +104,7 @@ $heightFooter: $size * 10;
   }
 }
 
+
 .footer {
   height: $heightFooter;
   background-color: $colorBg;
@@ -111,4 +112,63 @@ $heightFooter: $size * 10;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+@media (max-width: 600px) {
+  .header {
+    height: calc($heightHeader / 2);
+    justify-content: space-around;
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    left: 0;
+    top: 0;
+    opacity: 0.8;
+
+    h1 {
+      font-size: $size * 3;
+    }
+
+    nav {
+
+
+      .contact {
+        font-size: $size * 1.8;
+        border-left: none;
+        padding: 10px;
+      }
+
+      .wrapCart{
+        display: none;
+      }
+    }
+  }
+
+  .containerMain {
+    text-align: center;
+    margin-top: calc($heightHeader / 2);
+    padding-bottom: calc($heightHeader / 2);
+
+    .nav {
+      display: none;
+    }
+
+    .main {
+      width: 100%;
+    }
+  }
+
+  .footer {
+    height: calc($heightFooter / 2);
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    opacity: 0.8;
+
+    .footer__desktop{
+      display: none;
+    }
+  }
 }

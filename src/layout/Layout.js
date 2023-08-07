@@ -29,7 +29,9 @@ const Layout = () => {
           <Outlet/>
         </main>
       </div>
-      <footer className={"footer"}>2023 - footer - Clothes shop</footer>
+      <footer className={"footer"}>
+        <span className={"footer__desktop"}>2023 - footer - Clothes shop</span>
+      </footer>
     </>
   );
 };
