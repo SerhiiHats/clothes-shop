@@ -4,105 +4,106 @@
   margin: $size * 1.5 0 $size * 2.5 0;
   max-width: $size * 30;
   background-color: lightgray;
-  transition: 0.2s;
   border-radius: $size;
-  box-shadow: 0 0 $size $size * 0.1 gray;
   opacity: 0.8;
+  transition: 0.4s ease-in-out;
 
   &:hover {
     opacity: 1;
+    box-shadow: 0 0 $size $size * 0.1 gray;
   }
 
-    img {
-      width: 93%;
-      border-radius: $size;
-      margin: 10px;
+  img {
+    width: 93%;
+    aspect-ratio: 10 / 12;
+    border-radius: $size;
+    margin: 10px;
+    transition: 0.5s ease-in-out;
+  }
 
+  .wrapCategory {
+    margin: 10px;
+
+    .category {
+      margin: $size * 0.5 0 $size * 0.5 0;
+      font-size: $size * 1.5;
     }
 
-    .wrapCategory{
-      margin: 10px;
+    .title {
+      margin: $size * 0.2 0 $size * 0.2 0;
+      font-weight: 500;
+      font-size: $size * 2;
+      color: $colorActive;
+    }
 
-      .category {
-        margin: $size * 0.5 0 $size * 0.5 0;
-        font-size: $size * 1.5;
+    .description {
+      margin: $size 0 $size * 0.2 0;
+      font-size: $size * 1.4;
+      font-weight: 400;
+    }
+
+    .wrapPrice {
+      margin: $size 0 $size * 0.2 0;
+      font-size: $size * 1.4;
+      font-weight: 500;
+
+      & .price {
+        color: $colorAtt;
       }
+    }
 
-      .title {
-        margin: $size * 0.2 0 $size * 0.2 0;
-        font-weight: 500;
-        font-size: $size * 2;
-        color: $colorActive;
-      }
+    .wrapBtn {
+      text-align: right;
+      margin-top: $size;
 
-      .description {
-        margin: $size 0 $size * 0.2 0;
-        font-size: $size * 1.4;
-        font-weight: 400;
-      }
+      button {
+        width: $size * 10;
+        padding: $size 0;
+        background-color: $colorActive4;
+        border: 2px solid $colorActive4;
+        border-radius: $size * 0.5;
+        color: $colorDefault;
+        font-weight: bold;
+        position: relative;
 
-      .wrapPrice {
-        margin: $size 0 $size * 0.2 0;
-        font-size: $size * 1.4;
-        font-weight: 500;
-
-        & .price {
-          color: $colorAtt;
-        }
-      }
-
-      .wrapBtn{
-        text-align: right;
-        margin-top: $size;
-
-        button{
-          width: $size * 10;
-          padding: $size 0;
+        .countProduct {
+          display: inline-block;
+          width: 20px;
+          text-align: center;
+          color: white;
           background-color: $colorActive4;
-          border: 2px solid $colorActive4;
-          border-radius: $size * 0.5;
-          color: $colorDefault;
-          font-weight: bold;
-          position: relative;
-
-          .countProduct{
-            display: inline-block;
-            width: 20px;
-            text-align: center;
-            color: white;
-            background-color: $colorActive4;
-            border-radius: 50%;
-            padding: 5px;
-            position: absolute;
-            top: -15px;
-            right: -7px;
-            font-size: 16px;
-          }
+          border-radius: 50%;
+          padding: 5px;
+          position: absolute;
+          top: -15px;
+          right: -7px;
+          font-size: 16px;
         }
+      }
 
-        .btnDefault{
-          background-color: $colorActive4;
-          color: $colorDefault;
+      .btnDefault {
+        background-color: $colorActive4;
+        color: $colorDefault;
 
-          &:hover {
-            background-color: $colorActive;
-            border: 2px solid $colorActive;
-            box-shadow: 0 0 7px 0 gray;
-            cursor: pointer;
-          }
+        &:hover {
+          background-color: $colorActive;
+          border: 2px solid $colorActive;
+          box-shadow: 0 0 7px 0 gray;
+          cursor: pointer;
         }
+      }
 
-        .btnActive{
-          background-color: $colorDefault;
+      .btnActive {
+        background-color: $colorDefault;
+        color: $colorDefault2;
+
+        &:hover {
+          background-color: $colorActive1;
+          cursor: pointer;
           color: $colorDefault2;
-
-          &:hover {
-            background-color: $colorActive1;
-            cursor: pointer;
-            color: $colorDefault2;
-          }
         }
       }
     }
+  }
 
 }
