@@ -29,5 +29,7 @@ export const iconTypes = {
   "cancelCircle": 'cancelCircle',
   "cartShopping": 'cartShopping',
   "delete": 'delete',
-
+  "aboutI": 'aboutI',
+  "burgerMenuOpen": 'burgerMenuOpen',
+  "burgerMenuClosed": 'burgerMenuClosed',
 }

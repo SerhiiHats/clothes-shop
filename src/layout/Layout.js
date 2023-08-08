@@ -3,6 +3,9 @@ import {Outlet} from "react-router";
 import "./Layout.scss"
 import {Link, NavLink} from "react-router-dom";
 import CartShopping from "../companents/CartShopping/CartShopping";
+import {Icon} from "../companents/Icon/Icon";
+import {iconTypes} from "../constants/icons";
+import FooterMobile from "../companents/FooterMobile/FooterMobile";
 
 const Layout = () => {
   return (
@@ -30,7 +33,14 @@ const Layout = () => {
         </main>
       </div>
       <footer className={"footer"}>
-        <span className={"footer__desktop"}>2023 - footer - Clothes shop</span>
+        <div className={"footer__mobile"}>
+          <FooterMobile/>
+          {/*<span><Icon type={iconTypes.burgerMenuOpen}/></span>*/}
+          {/*/!*<span> <Icon type={iconTypes.burgerMenuClosed}/></span>*!/*/}
+          {/*<span> <Icon type={iconTypes.aboutI}/></span>*/}
+          {/*<span><Icon type={iconTypes.cartShopping}/></span>*/}
+        </div>
+        <div className={"footer__desktop"}>2023 - footer - Clothes shop</div>
       </footer>
     </>
   );

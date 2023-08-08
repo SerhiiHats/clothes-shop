@@ -24,7 +24,8 @@ const CartShopping = () => {
     setOrder(tempOrder);
   }, [countProduct]);
 
-  const handleCountProduct = (id, count, k) => {
+  const handleCountProduct = (e, id, count, k) => {
+    e.stopPropagation();
 
     if ((count === 1 && k === -1) || k === 0) {
       const tempProducts = order.filter(product => product.idProduct !== id);
@@ -70,7 +71,7 @@ const CartShopping = () => {
               titleProduct={product.titleProduct}
               quantity={product.quantity}
               price={product.price}
-              handleCountProduct={(id, count, k) => handleCountProduct(id, count, k)}
+              handleCountProduct={(e, id, count, k) => handleCountProduct(e, id, count, k)}
             />)
           })}
         <li>Total price: {totalPrice} грн.</li>
