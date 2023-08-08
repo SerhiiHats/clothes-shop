@@ -101,7 +101,7 @@ $heightFooter: $size * 10;
   .main {
     width: calc(100% - $widthNav);
     background-color: $colorBg3;
-    min-height: 100vh;
+    min-height: calc(100vh - $heightHeader);
   }
 }
 

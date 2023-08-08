@@ -18,8 +18,39 @@
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 1199px) {
   .containerProduct {
-    justify-content: center;
+    justify-content: space-around;
+  }
+}
+
+@media (max-width: 500px) {
+  .containerProduct {
+    padding: 0 10px;
+  }
+}
+
+@media (max-width: 478px) {
+  .containerProduct {
+    padding: 0 1px;
+  }
+}
+
+@media (max-width: 460px) {
+  .containerProduct {
+    padding: 0;
+
+    .wrapCardProduct {
+      margin: 0 5px;
+    }
+  }
+}
+
+@media (max-width: 437px) {
+  .containerProduct {
+
+    .wrapCardProduct {
+      margin: 0 2px;
+    }
   }
 }
