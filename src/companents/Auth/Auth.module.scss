@@ -10,6 +10,7 @@
   border: 1px solid $colorBg;
   padding: $size * 2 $size $size * 3;
 
+
   .isOld {
     margin-bottom: $size * 2;
   }
@@ -36,5 +37,45 @@
     &:last-child {
       background-color: $colorActive4;
     }
+  }
+}
+
+@media (max-width: 750px) {
+  .auth {
+    width: $size * 40;
+
+    button {
+      width: $size * 18;
+      font-size: $size * 1.2;
+      transition: 0.2s;
+      user-select: none;
+    }
+  }
+}
+
+@media (max-width: 450px) {
+  .auth {
+    width: $size * 30;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    button {
+      margin: $size;
+      width: $size * 20;
+    }
+  }
+
+}
+
+@media (max-width: 350px) {
+  .auth {
+    width: $size * 25;
+  }
+}
+
+@media (max-width: 300px) {
+  .auth {
+    width: $size * 21;
   }
 }

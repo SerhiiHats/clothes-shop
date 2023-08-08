@@ -11,7 +11,8 @@ const MainPage = () => {
   };
   return (
     <div onClick={() => handleStartClick()} className={"mainPage backImg"}>
-      <p>В нашому магазині лише актуальні товари</p>
+      <p className={"shop-title"}>В нашому магазині лише актуальні товари</p>
+      <span className={"shop-now"}>shop now</span>
     </div>
   );
 };
