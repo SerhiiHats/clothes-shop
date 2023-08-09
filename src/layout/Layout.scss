@@ -56,16 +56,16 @@ $heightFooter: $size * 10;
         transition: 0.2s;
       }
 
-      ul {
-        visibility: hidden;
-        //display: none;
-      }
-
-      &:hover ul {
-        visibility: visible;
-        //display: unset;
-        z-index: 100;
-      }
+      //ul {
+      //  visibility: hidden;
+      //  //display: none;
+      //}
+      //
+      //&:hover ul {
+      //  visibility: visible;
+      //  //display: unset;
+      //  z-index: 100;
+      //}
     }
 
   }

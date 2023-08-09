@@ -7,14 +7,14 @@ import CartShopping from "../CartShopping/CartShopping";
 
 const FooterMobile = () => {
   const [isOpenMenu, setIsOpenMenu] = useState(false);
-  const [visibleCart, setVisibleCart] = useState(false);
+  const [show, setShow] = useState(false);
 
   function handlerBurgerMenu() {
     setIsOpenMenu(!isOpenMenu);
   }
 
-  function handlerCart() {
-    setVisibleCart(!visibleCart);
+  function handlerShowCart() {
+    setShow(!show);
   }
 
   return (
@@ -26,7 +26,10 @@ const FooterMobile = () => {
       </span>
       <span><Icon type={iconTypes.aboutI}/></span>
       {/*<span><Icon type={iconTypes.cartShopping}/></span>*/}
-      <span onClick={handlerCart}><Icon type={iconTypes.cartShopping}/>{visibleCart === true && <CartShopping/>}</span>
+      {/*<span onClick={handlerCart}><Icon type={iconTypes.cartShopping}/>{visibleCart === true && <CartShopping/>}</span>*/}
+      <span onClick={handlerShowCart}>
+        {/*<Icon type={iconTypes.cartShopping}/>*/}
+        <CartShopping show={show}/></span>
     </>
   );
 };

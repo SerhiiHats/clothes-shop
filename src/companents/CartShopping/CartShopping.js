@@ -6,7 +6,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {setCountAC, setMapCountAC} from "../CardProduct/countAction";
 import ItemInCart from "../ItemInCart/ItemInCart";
 
-const CartShopping = () => {
+const CartShopping = ({show}) => {
   const userOrderClothesShop = JSON.parse(localStorage.getItem("userOrderClothesShop"));
   const [order, setOrder] = useState(userOrderClothesShop || []);
   const [totalPrice, setTotalPrice] = useState(0);
@@ -57,10 +57,10 @@ const CartShopping = () => {
     <>
     <span className={styles.cart}>
         <span><Icon type={iconTypes.cartShopping} size={"30px"} color={"white"}/></span>
-        <span>Кошик</span>
+        <span className={styles.cart__title}>Кошик</span>
       {countProduct !== 0 && (<span className={styles.countProducts}>{countProduct}</span>)}
     </span>
-      <ul className={styles.cartShopping}>
+      {show && <ul className={styles.cartShopping}>
         {order.length === 0 ?
           (<li><div>Cart is empty</div></li>)
           : userOrderClothesShop.map(product => {
@@ -76,7 +76,7 @@ const CartShopping = () => {
           })}
         <li>Total price: {totalPrice} грн.</li>
         {countProduct !== 0 && (<li><button className={styles.btnShopping}>Оформити замовлення</button></li>)}
-      </ul>
+      </ul>}
     </>);
 };
 export default CartShopping;

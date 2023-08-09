@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Outlet} from "react-router";
 import "./Layout.scss"
 import {Link, NavLink} from "react-router-dom";
@@ -8,6 +8,12 @@ import {iconTypes} from "../constants/icons";
 import FooterMobile from "../companents/FooterMobile/FooterMobile";
 
 const Layout = () => {
+
+  const [show, setShow] = useState(false);
+  function handlerShowCart() {
+    setShow(!show);
+  }
+
   return (
     <>
       <header className={"header"}>
@@ -16,7 +22,7 @@ const Layout = () => {
           <NavLink to={"/contacts"}>
             <div className={"contact"}>Контакти</div>
           </NavLink>
-          <div className={"wrapCart"}><CartShopping/></div>
+          <div onClick={handlerShowCart} className={"wrapCart"}><CartShopping show={show}/></div>
         </nav>
 
       </header>
