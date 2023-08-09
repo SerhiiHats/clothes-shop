@@ -12,13 +12,13 @@ const ItemInCart = ({idProduct, titleProduct, quantity, price, handleCountProduc
           <span>{titleProduct}</span>
           <span onClick={(e) => handleCountProduct(e, idProduct, quantity, 0)}><Icon
             type={iconTypes.delete} size={"22px"} color={"#171B1E"}/></span></p>
-        <p>{quantity}<span> од.</span></p>
+        {/*<p>{quantity}<span> од.</span></p>*/}
         {/*<p></p>*/}
         <div className={styles.wrapTotalPrice}>
-           <span className={styles.price}>{price}<span> грн.</span></span>
-           <span className={styles.wrapButtons}>
+          <span className={styles.price}>{price}<span> грн.</span></span>
+          <span className={styles.wrapButtons}>
                  <button className={styles.btnSetCount}
-                              onClick={(e) => handleCountProduct(e, idProduct, quantity, -1)}>-</button>
+                         onClick={(e) => handleCountProduct(e, idProduct, quantity, -1)}>-</button>
                       <span className={styles.quantity}>{quantity}</span>
                       <button className={styles.btnSetCount}
                               onClick={(e) => handleCountProduct(e, idProduct, quantity, +1)}>+</button>

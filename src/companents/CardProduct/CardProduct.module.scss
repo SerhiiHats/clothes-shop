@@ -5,11 +5,11 @@
   max-width: $size * 30;
   background-color: lightgray;
   border-radius: $size;
-  opacity: 0.8;
+  //opacity: 0.8;
   transition: 0.4s ease-in-out;
 
   &:hover {
-    opacity: 1;
+    //opacity: 1;
     box-shadow: 0 0 $size $size * 0.1 gray;
   }
 

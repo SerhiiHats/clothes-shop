@@ -6,9 +6,9 @@ li {
     display: flex;
     justify-content: space-between;
 
-    svg{
+    svg {
 
-      &:hover{
+      &:hover {
         cursor: pointer;
       }
     }
@@ -17,15 +17,14 @@ li {
   .wrapTotalPrice {
     display: flex;
     margin: $size 0;
-    //justify-content: space-between;
 
     .price {
       width: 40%;
       color: $colorBg2;
     }
+
     .wrapButtons {
       border-radius: 5px;
-      //margin: 0 $size * 10;
       width: 30%;
 
       .btnSetCount {
@@ -59,6 +58,7 @@ li {
       width: 30%;
     }
   }
+
   &:hover li {
 
   }

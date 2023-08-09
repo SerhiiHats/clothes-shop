@@ -1,12 +1,10 @@
 import React, {useEffect, useState} from 'react';
-import {Icon} from "../Icon/Icon";
-import {iconTypes} from "../../constants/icons";
 import styles from "./CartShopping.module.scss";
 import {useDispatch, useSelector} from "react-redux";
 import {setCountAC, setMapCountAC} from "../CardProduct/countAction";
 import ItemInCart from "../ItemInCart/ItemInCart";
 
-const CartShopping = ({show}) => {
+const CartShopping = () => {
   const userOrderClothesShop = JSON.parse(localStorage.getItem("userOrderClothesShop"));
   const [order, setOrder] = useState(userOrderClothesShop || []);
   const [totalPrice, setTotalPrice] = useState(0);
@@ -44,7 +42,7 @@ const CartShopping = ({show}) => {
     localStorage.setItem("userOrderClothesShop", JSON.stringify(tempProducts));
     setOrder(JSON.parse(localStorage.getItem("userOrderClothesShop")));
 
-    if(k===1){
+    if (k === 1) {
       dispatch(setCountAC(1));
       dispatch(setMapCountAC(id, 1));
     } else {
@@ -55,12 +53,7 @@ const CartShopping = ({show}) => {
 
   return (
     <>
-    <span className={styles.cart}>
-        <span><Icon type={iconTypes.cartShopping} size={"30px"} color={"white"}/></span>
-        <span className={styles.cart__title}>Кошик</span>
-      {countProduct !== 0 && (<span className={styles.countProducts}>{countProduct}</span>)}
-    </span>
-      {show && <ul className={styles.cartShopping}>
+      <ul className={styles.cartShopping}>
         {order.length === 0 ?
           (<li><div>Cart is empty</div></li>)
           : userOrderClothesShop.map(product => {
@@ -75,8 +68,10 @@ const CartShopping = ({show}) => {
             />)
           })}
         <li>Total price: {totalPrice} грн.</li>
-        {countProduct !== 0 && (<li><button className={styles.btnShopping}>Оформити замовлення</button></li>)}
-      </ul>}
+        {countProduct !== 0 && (<li>
+          <button className={styles.btnShopping}>Оформити замовлення</button>
+        </li>)}
+      </ul>
     </>);
 };
 export default CartShopping;

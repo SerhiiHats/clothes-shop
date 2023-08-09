@@ -3,18 +3,21 @@ import {Icon} from "../Icon/Icon";
 import {iconTypes} from "../../constants/icons";
 // import styles from "./FooterMobile.scss";
 import "./FooterMobile.scss"
-import CartShopping from "../CartShopping/CartShopping";
+import {useNavigate} from "react-router";
+import CountProducts from "../CountProducts/CountProducts";
 
 const FooterMobile = () => {
   const [isOpenMenu, setIsOpenMenu] = useState(false);
-  const [show, setShow] = useState(false);
+  const [comeBack, setComeBack] = useState(false);
+  const navigate = useNavigate();
 
   function handlerBurgerMenu() {
     setIsOpenMenu(!isOpenMenu);
   }
 
-  function handlerShowCart() {
-    setShow(!show);
+  function handlerCart() {
+    setComeBack(!comeBack);
+    comeBack === false ? navigate("/cart") : navigate(-1);
   }
 
   return (
@@ -25,11 +28,9 @@ const FooterMobile = () => {
           <Icon type={iconTypes.burgerMenuClosed}/>}
       </span>
       <span><Icon type={iconTypes.aboutI}/></span>
-      {/*<span><Icon type={iconTypes.cartShopping}/></span>*/}
-      {/*<span onClick={handlerCart}><Icon type={iconTypes.cartShopping}/>{visibleCart === true && <CartShopping/>}</span>*/}
-      <span onClick={handlerShowCart}>
-        {/*<Icon type={iconTypes.cartShopping}/>*/}
-        <CartShopping show={show}/></span>
+      <span onClick={handlerCart}>
+        <CountProducts/>
+      </span>
     </>
   );
 };

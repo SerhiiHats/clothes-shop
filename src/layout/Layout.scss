@@ -171,7 +171,8 @@ $heightFooter: $size * 10;
     width: 100%;
     left: 0;
     bottom: 0;
-    opacity: 0.8;
+    background-color: #747474;
+    //opacity: 0.8;
 
     .footer__desktop {
       display: none;
