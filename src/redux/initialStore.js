@@ -20,6 +20,7 @@ const initialStore = {
   auth: false,
   count: getCount()[0],
   mapQuantity: getCount()[1],
+  setStyleNav: false,
 }
 
 export default initialStore;

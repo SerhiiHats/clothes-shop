@@ -10,6 +10,7 @@
   flex-direction: column;
   background-color: lighten($colorBg3, 5%);
   box-shadow: 0 0 10px 1px gray;
+  z-index: 1;
 
   li {
     width: 500px;

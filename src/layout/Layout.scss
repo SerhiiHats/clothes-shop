@@ -24,7 +24,6 @@ $heightFooter: $size * 10;
     font-size: $size * 5;
   }
 
-
   a {
     color: $colorDefault;
     text-decoration: none;
@@ -35,7 +34,6 @@ $heightFooter: $size * 10;
   }
 
   nav {
-
     display: flex;
 
     .contact {
@@ -55,21 +53,8 @@ $heightFooter: $size * 10;
         background-color: darken($colorBg, 10%);
         transition: 0.2s;
       }
-
-      //ul {
-      //  visibility: hidden;
-      //  //display: none;
-      //}
-      //
-      //&:hover ul {
-      //  visibility: visible;
-      //  //display: unset;
-      //  z-index: 100;
-      //}
     }
-
   }
-
 }
 
 .containerMain {
@@ -89,7 +74,6 @@ $heightFooter: $size * 10;
         margin-top: $size;
         margin-left: $size;
         font-size: $size * 2;
-
       }
     }
 
@@ -105,7 +89,6 @@ $heightFooter: $size * 10;
   }
 }
 
-
 .footer {
   height: $heightFooter;
   background-color: $colorBg;
@@ -118,7 +101,6 @@ $heightFooter: $size * 10;
     display: none;
   }
 }
-
 
 @media (max-width: 600px) {
   .header {
@@ -137,7 +119,6 @@ $heightFooter: $size * 10;
 
     nav {
 
-
       .contact {
         font-size: $size * 1.8;
         border-left: none;
@@ -155,8 +136,55 @@ $heightFooter: $size * 10;
     margin-top: calc($heightHeader / 2);
     padding-bottom: calc($heightHeader / 2);
 
-    .nav {
-      display: none;
+    .navMobileOpen {
+      position: absolute;
+      left: 0;
+      top: calc($heightHeader / 2);
+      height: calc(100vh - $heightHeader);
+      min-width: 60%;
+      background-color: #969696;
+      z-index: 1;
+      border-radius: 0 25px 25px 0;
+      animation: fadein 0.5s forwards;
+
+      @keyframes fadein {
+        0% {
+          opacity: 0;
+          width: 0;
+          left: calc(60% * (-1));
+        }
+        100% {
+          opacity: 1;
+          min-width: 60%;
+          left: 0;
+        }
+      }
+    }
+
+    .navMobileClose {
+      position: absolute;
+      left: 0;
+      top: calc($heightHeader / 2);
+      height: calc(100vh - $heightHeader);
+      min-width: 60%;
+      background-color: #969696;
+      z-index: 1;
+      border-radius: 0 25px 25px 0;
+      animation: fadeout 0.5s forwards;
+
+      @keyframes fadeout {
+        0% {
+          opacity: 1;
+          min-width: 60%;
+          left: 0;
+        }
+        100% {
+          opacity: 0;
+          width: 0;
+          left: calc(60% * (-1));
+          display: none;
+        }
+      }
     }
 
     .main {
@@ -172,7 +200,6 @@ $heightFooter: $size * 10;
     left: 0;
     bottom: 0;
     background-color: #747474;
-    //opacity: 0.8;
 
     .footer__desktop {
       display: none;
@@ -183,8 +210,6 @@ $heightFooter: $size * 10;
       display: flex;
       justify-content: space-around;
       align-items: center;
-
-
     }
   }
 }

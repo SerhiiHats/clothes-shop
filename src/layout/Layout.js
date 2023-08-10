@@ -5,10 +5,15 @@ import {Link, NavLink} from "react-router-dom";
 import CartShopping from "../companents/CartShopping/CartShopping";
 import FooterMobile from "../companents/FooterMobile/FooterMobile";
 import CountProducts from "../companents/CountProducts/CountProducts";
+import {useSelector} from "react-redux";
 
 const Layout = () => {
 
   const [show, setShow] = useState(false);
+  const setStyleNav = useSelector(store => store.setStyleNav);
+
+  const styleNav = (setStyleNav === false) ? "nav navMobileClose" :
+    "nav navMobileOpen";
 
   function handlerShowCart() {
     setShow(!show);
@@ -29,7 +34,7 @@ const Layout = () => {
 
       </header>
       <div className={"containerMain"}>
-        <nav className={"nav"}>
+        <nav className={styleNav}>
           <NavLink to={"/"}><p>Каталог товарів</p></NavLink>
           <NavLink to={"/product/for_men"} state={{items: "men's clothing"}}><p>Чоловічій одяг</p></NavLink>
           <NavLink to={"/product/for_women"} state={{items: "women's clothing"}}><p>Жіночій одяг</p></NavLink>
