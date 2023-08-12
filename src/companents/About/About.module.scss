@@ -1,0 +1,10 @@
+@import "./src/index";
+
+.title {
+  margin: 20px 0 10px;
+
+  .title__name{
+    color: $colorActive;
+
+  }
+}

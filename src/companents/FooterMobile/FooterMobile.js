@@ -9,32 +9,25 @@ import {setStyleNavAC} from "./setStyleNavAction";
 
 const FooterMobile = () => {
   const [isOpenMenu, setIsOpenMenu] = useState(false);
-  const [comeBack, setComeBack] = useState(false);
+  const [showCart, setShowCart] = useState(true);
+  const [showAbout, setShowAbout] = useState(true);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   function handlerBurgerMenu() {
     setIsOpenMenu(!isOpenMenu);
-    if (isOpenMenu) {
-      dispatch(setStyleNavAC(false));
-
-    } else {
+    isOpenMenu ? dispatch(setStyleNavAC(false)) :
       dispatch(setStyleNavAC(true));
+  }
 
-      if (comeBack) {
-        navigate(-1);
-        setComeBack(!comeBack);
-      }
-
-    }
-
-    // isOpenMenu ? dispatch(setStyleNavAC(false)) :
-    //   dispatch(setStyleNavAC(true));
+  function handlerAbout() {
+    showAbout === true ? navigate("/about") : navigate(-1);
+    setShowAbout(!showAbout);
   }
 
   function handlerCart() {
-    setComeBack(!comeBack);
-    comeBack === false ? navigate("/cart") : navigate(-1);
+    showCart === true ? navigate("/cart") : navigate(-1);
+    setShowCart(!showCart);
   }
 
   return (
@@ -44,7 +37,7 @@ const FooterMobile = () => {
           <Icon type={iconTypes.burgerMenuOpen}/> :
           <Icon type={iconTypes.burgerMenuClosed}/>}
       </span>
-      <span><Icon type={iconTypes.aboutI}/></span>
+      <span onClick={handlerAbout}><Icon type={iconTypes.aboutI}/></span>
       <span onClick={handlerCart}>
         <CountProducts/>
       </span>

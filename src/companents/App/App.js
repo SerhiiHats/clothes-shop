@@ -12,6 +12,7 @@ import RequireAuth from "../hoc/requireAuth";
 import ErrorBoundary from "../ErrorBoundary/ErrorBoundary";
 import ErrorPage from "../../pages/ErrorPage";
 import CartShopping from "../CartShopping/CartShopping";
+import About from "../About/About";
 
 function App() {
   return (
@@ -49,6 +50,7 @@ function App() {
           <Route path={"/error"} element={<ErrorResponsePage/>}/>
           <Route path={"/auth"} element={<Auth/>}/>
           <Route path={"/cart"} element={<CartShopping/>}/>
+          <Route path={"/about"} element={<About/>}/>
         </Route>
       </Routes>
     </ErrorPage>

@@ -137,7 +137,7 @@ $heightFooter: $size * 10;
     padding-bottom: calc($heightHeader / 2);
 
     .navMobileOpen {
-      position: absolute;
+      position: fixed;
       left: 0;
       top: calc($heightHeader / 2);
       height: calc(100vh - $heightHeader);
@@ -162,7 +162,7 @@ $heightFooter: $size * 10;
     }
 
     .navMobileClose {
-      position: absolute;
+      position: fixed;
       left: 0;
       top: calc($heightHeader / 2);
       height: calc(100vh - $heightHeader);
