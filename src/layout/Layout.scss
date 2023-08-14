@@ -42,6 +42,12 @@ $heightFooter: $size * 10;
       padding: 36px;
     }
 
+    .about {
+      font-size: $size * 2;
+      border-left: 1px solid darken($colorBg, 10%);
+      padding: 36px;
+    }
+
     .wrapCart {
       font-size: $size * 2;
       padding: 32px;
@@ -102,6 +108,31 @@ $heightFooter: $size * 10;
   }
 }
 
+@media (max-width: 730px) {
+  .header {
+    h1 {
+      font-size: $size * 4;
+    }
+
+    nav {
+      .contact {
+        padding: 36px 18px;
+      }
+
+      .about {
+        padding: 36px 25px;;
+      }
+
+      .wrapCart {
+        padding: 32px 18px;;
+
+        &:hover {
+        }
+      }
+    }
+  }
+}
+
 @media (max-width: 600px) {
   .header {
     height: calc($heightHeader / 2);
@@ -123,6 +154,10 @@ $heightFooter: $size * 10;
         font-size: $size * 1.8;
         border-left: none;
         padding: 10px;
+      }
+
+      .about {
+        display: none;
       }
 
       .wrapCart {

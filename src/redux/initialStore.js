@@ -21,6 +21,7 @@ const initialStore = {
   count: getCount()[0],
   mapQuantity: getCount()[1],
   setStyleNav: false,
+  showModalAbout: false,
 }
 
 export default initialStore;

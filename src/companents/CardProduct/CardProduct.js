@@ -70,7 +70,8 @@ const CardProduct = (props) => {
         <p className={styles.wrapPrice}><span>price: <span className={styles.price}> {price} $ </span> </span>
           <span> rating: {rating.rate} count: {rating.count}</span></p>
         <p className={styles.wrapBtn}>
-          {mapQuantity.has(id) ? <button className={styles.btnActive} onClick={(e) => addToCart(e)}>In cart <span className={styles.countProduct}>{mapQuantity.get(id)}</span></button>
+          {mapQuantity.has(id) ? <button className={styles.btnActive} onClick={(e) => addToCart(e)}>In cart <span
+              className={styles.countProduct}>{mapQuantity.get(id)}</span></button>
             :
             <button className={styles.btnDefault} onClick={(e) => addToCart(e)}>Add to cart</button>}
         </p>

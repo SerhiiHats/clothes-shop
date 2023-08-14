@@ -5,12 +5,14 @@ import {Link, NavLink} from "react-router-dom";
 import CartShopping from "../companents/CartShopping/CartShopping";
 import FooterMobile from "../companents/FooterMobile/FooterMobile";
 import CountProducts from "../companents/CountProducts/CountProducts";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import {setShowModalAboutAC} from "../companents/About/aboutAction";
 
 const Layout = () => {
 
   const [show, setShow] = useState(false);
   const setStyleNav = useSelector(store => store.setStyleNav);
+  const dispatch = useDispatch();
 
   const styleNav = (setStyleNav === false) ? "nav navMobileClose" :
     "nav navMobileOpen";
@@ -27,6 +29,7 @@ const Layout = () => {
           <NavLink to={"/contacts"}>
             <div className={"contact"}>Контакти</div>
           </NavLink>
+          <div className={"about"} onClick={() => dispatch(setShowModalAboutAC())}>About</div>
           <div onClick={handlerShowCart} className={"wrapCart"}>
             <CountProducts/>
             {show && <CartShopping/>}</div>

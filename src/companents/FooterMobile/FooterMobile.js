@@ -4,25 +4,27 @@ import {iconTypes} from "../../constants/icons";
 import "./FooterMobile.scss"
 import {useNavigate} from "react-router";
 import CountProducts from "../CountProducts/CountProducts";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {setStyleNavAC} from "./setStyleNavAction";
+import Modal from "../Modal/Modal";
+import About from "../About/About";
+import {setShowModalAboutAC} from "../About/aboutAction";
 
 const FooterMobile = () => {
   const [isOpenMenu, setIsOpenMenu] = useState(false);
   const [showCart, setShowCart] = useState(true);
-  const [showAbout, setShowAbout] = useState(true);
+  const isShowAbout = useSelector(store => store.showModalAbout);
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  const handlerModal = () => {
+    dispatch(setShowModalAboutAC());
+  }
 
   function handlerBurgerMenu() {
     setIsOpenMenu(!isOpenMenu);
     isOpenMenu ? dispatch(setStyleNavAC(false)) :
       dispatch(setStyleNavAC(true));
-  }
-
-  function handlerAbout() {
-    showAbout === true ? navigate("/about") : navigate(-1);
-    setShowAbout(!showAbout);
   }
 
   function handlerCart() {
@@ -37,10 +39,12 @@ const FooterMobile = () => {
           <Icon type={iconTypes.burgerMenuOpen}/> :
           <Icon type={iconTypes.burgerMenuClosed}/>}
       </span>
-      <span onClick={handlerAbout}><Icon type={iconTypes.aboutI}/></span>
+      <span onClick={handlerModal}><Icon type={iconTypes.aboutI}/></span>
       <span onClick={handlerCart}>
         <CountProducts/>
       </span>
+      {isShowAbout && <Modal text={<About/>} closeHandler={() => handlerModal()}
+      />}
     </>
   );
 };
