@@ -60,7 +60,7 @@ const CartShopping = () => {
       <div>
         <span>Повернутись до покупок</span>
         <span>Загальна сума:
-          <span>{totalPrice}</span>грн.
+          <span>{Math.round(totalPrice * 100) / 100}</span>грн.
         </span>
       </div>
       <div>
@@ -73,17 +73,23 @@ const CartShopping = () => {
   return (
     <div className={styles.cartShopping}>
       {!order.length && emptyCart}
-      {userOrderClothesShop.map(product => {
-        console.log(product)
-        return (<ItemsInCart
-          key={product.idProduct}
-          idProduct={product.idProduct}
-          titleProduct={product.titleProduct}
-          quantity={product.quantity}
-          price={product.price}
+      <ItemsInCart
+          items={order}
           handleCountProduct={(e, id, count, k) => handleCountProduct(e, id, count, k)}
-        />)
-      })}
+        />
+
+      {/*{userOrderClothesShop.map(product => {*/}
+      {/*  console.log(product)*/}
+      {/*  return (<ItemsInCart*/}
+      {/*    items={order}*/}
+      {/*    key={product.idProduct}*/}
+      {/*    idProduct={product.idProduct}*/}
+      {/*    titleProduct={product.titleProduct}*/}
+      {/*    quantity={product.quantity}*/}
+      {/*    price={product.price}*/}
+      {/*    handleCountProduct={(e, id, count, k) => handleCountProduct(e, id, count, k)}*/}
+      {/*  />)*/}
+      {/*})}*/}
       {/*<li>Total price: {totalPrice} грн.</li>*/}
       {/*{countProduct !== 0 && (<li>*/}
       {/*  <button className={styles.btnShopping}>Оформити замовлення</button>*/}

@@ -1,66 +1,111 @@
 @import "../../../index";
 
-li {
+table {
+  width: 500px;
 
-  .wrapTitleProduct {
-    display: flex;
-    justify-content: space-between;
+  tbody {
+    color: $colorBg2;
+    background-color: white;
 
-    svg {
+    tr {
+      display: grid;
+      grid-template-columns: 1fr 2fr 1fr;
+      gap: 10px;
+      border-bottom: 2px solid #a9a9a9;
+      padding: 10px 0;
 
-      &:hover {
-        cursor: pointer;
-      }
-    }
-  }
 
-  .wrapTotalPrice {
-    display: flex;
-    margin: $size 0;
+      td {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
 
-    .price {
-      width: 40%;
-      color: $colorBg2;
-    }
+        .wrapButtons {
+          width: 100%;
+          text-align: center;
 
-    .wrapButtons {
-      border-radius: 5px;
-      width: 30%;
+          .btnSetCount {
+            width: $size * 3.5;
+            height: $size * 3.5;
+            border-radius: 5px;
+            border: none;
+            background-color: $colorActive4;
+            user-select: none;
+            font-size: $size * 1.8;
 
-      .btnSetCount {
-        width: $size * 3.5;
-        height: $size * 3.5;
-        border-radius: 5px;
-        border: none;
-        background-color: $colorActive4;
-        user-select: none;
-        font-size: $size * 1.8;
+            &:hover {
+              background-color: darken($colorActive4, 10%);
+              cursor: pointer;
+            }
+          }
 
-        &:hover {
-          background-color: darken($colorActive4, 10%);
-          cursor: pointer;
+          .quantity {
+            display: inline-block;
+            min-width: $size * 4;
+            text-align: center;
+            color: $colorBg2;
+            font-size: $size * 1.7;
+          }
+        }
+
+        .wrapTitleProduct {
+          display: flex;
+          justify-content: space-between;
+
+          svg {
+
+            &:hover {
+              cursor: pointer;
+            }
+          }
         }
       }
-
-      .quantity {
-        display: inline-block;
-        min-width: $size * 4;
-        text-align: center;
-        color: $colorBg2;
-        font-size: $size * 1.7;
-      }
-    }
-
-    .totalPrice {
-      color: $colorBg2;
-      font-weight: bold;
-      text-align: right;
-      width: 30%;
     }
   }
-
-  &:hover li {
-
-  }
-
 }
+
+//.wrapTotalPrice {
+//  display: flex;
+//  margin: $size 0;
+//
+//  .price {
+//    width: 40%;
+//    color: $colorBg2;
+//  }
+//
+//  .wrapButtons {
+//    border-radius: 5px;
+//    width: 30%;
+//
+//    .btnSetCount {
+//      width: $size * 3.5;
+//      height: $size * 3.5;
+//      border-radius: 5px;
+//      border: none;
+//      background-color: $colorActive4;
+//      user-select: none;
+//      font-size: $size * 1.8;
+//
+//      &:hover {
+//        background-color: darken($colorActive4, 10%);
+//        cursor: pointer;
+//      }
+//    }
+//
+//    .quantity {
+//      display: inline-block;
+//      min-width: $size * 4;
+//      text-align: center;
+//      color: $colorBg2;
+//      font-size: $size * 1.7;
+//    }
+//  }
+//
+//  .totalPrice {
+//    color: $colorBg2;
+//    font-weight: bold;
+//    text-align: right;
+//    width: 30%;
+//  }
+//}
+

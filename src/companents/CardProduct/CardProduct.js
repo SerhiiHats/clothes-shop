@@ -13,6 +13,7 @@ const CardProduct = (props) => {
 
   const userOrder = [{
     "idProduct": id,
+    "image": image,
     "titleProduct": title,
     "price": price,
     "quantity": 1,
