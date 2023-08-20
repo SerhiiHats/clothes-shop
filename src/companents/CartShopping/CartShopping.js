@@ -2,25 +2,27 @@ import React, {useEffect, useState} from 'react';
 import styles from "./CartShopping.module.scss";
 import {useDispatch, useSelector} from "react-redux";
 import {setCountAC, setMapCountAC} from "../CardProduct/countAction";
-import ItemInCart from "../ItemInCart/ItemInCart";
+import ItemsInCart from "./ItemInsCart/ItemsInCart";
 
 const CartShopping = () => {
   const userOrderClothesShop = JSON.parse(localStorage.getItem("userOrderClothesShop"));
   const [order, setOrder] = useState(userOrderClothesShop || []);
-  const [totalPrice, setTotalPrice] = useState(0);
+  // const [totalPrice, setTotalPrice] = useState(0);
   const countProduct = useSelector(store => store.count);
   const dispatch = useDispatch();
 
   useEffect(() => {
     const tempOrder = JSON.parse(localStorage.getItem("userOrderClothesShop")) || [];
-    let tempTotalPrice = 0;
-    tempOrder.forEach(element => {
-      tempTotalPrice += element.price * element.quantity;
-    });
-    setTotalPrice(Math.round(tempTotalPrice * 100) / 100);
-    console.log("I am enter")
+    // let tempTotalPrice = 0;
+    // tempOrder.forEach(element => {
+    //   tempTotalPrice += element.price * element.quantity;
+    // });
+    // setTotalPrice(Math.round(tempTotalPrice * 100) / 100);
+    // console.log("I am enter")
     setOrder(tempOrder);
   }, [countProduct]);
+
+  const totalPrice = order.reduce((sum, currentValue) => sum + currentValue.price * currentValue.quantity, 0);
 
   const handleCountProduct = (e, id, count, k) => {
     e.stopPropagation();
@@ -51,27 +53,43 @@ const CartShopping = () => {
     }
   }
 
+  const emptyCart = (<div>у Вас ще не має товарів у кошику</div>);
+
+  const totalRow = (
+    <div>
+      <div>
+        <span>Повернутись до покупок</span>
+        <span>Загальна сума:
+          <span>{totalPrice}</span>грн.
+        </span>
+      </div>
+      <div>
+        <button className={styles.btnShopping}>Оформити замовлення</button>
+      </div>
+    </div>
+  );
+
+
   return (
-    <>
-      <ul className={styles.cartShopping}>
-        {order.length === 0 ?
-          (<li><div>Cart is empty</div></li>)
-          : userOrderClothesShop.map(product => {
-            console.log(product)
-            return (<ItemInCart
-              key={product.idProduct}
-              idProduct={product.idProduct}
-              titleProduct={product.titleProduct}
-              quantity={product.quantity}
-              price={product.price}
-              handleCountProduct={(e, id, count, k) => handleCountProduct(e, id, count, k)}
-            />)
-          })}
-        <li>Total price: {totalPrice} грн.</li>
-        {countProduct !== 0 && (<li>
-          <button className={styles.btnShopping}>Оформити замовлення</button>
-        </li>)}
-      </ul>
-    </>);
+    <div className={styles.cartShopping}>
+      {!order.length && emptyCart}
+      {userOrderClothesShop.map(product => {
+        console.log(product)
+        return (<ItemsInCart
+          key={product.idProduct}
+          idProduct={product.idProduct}
+          titleProduct={product.titleProduct}
+          quantity={product.quantity}
+          price={product.price}
+          handleCountProduct={(e, id, count, k) => handleCountProduct(e, id, count, k)}
+        />)
+      })}
+      {/*<li>Total price: {totalPrice} грн.</li>*/}
+      {/*{countProduct !== 0 && (<li>*/}
+      {/*  <button className={styles.btnShopping}>Оформити замовлення</button>*/}
+      {/*</li>)}*/}
+      {!!order.length && totalRow}
+    </div>
+  );
 };
 export default CartShopping;
