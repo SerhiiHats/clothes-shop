@@ -1,14 +1,9 @@
 @import "src/index";
 
 .cartShopping {
-  position: absolute;
-  top: 100px;
-  right: 11px;
   padding: $size;
   flex-direction: column;
   background-color: white;
-  box-shadow: 0 0 10px 1px gray;
-  z-index: 1;
   color: $colorBg2;
   font-size: $size * 1.8;
 

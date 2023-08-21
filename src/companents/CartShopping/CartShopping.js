@@ -7,18 +7,11 @@ import ItemsInCart from "./ItemInsCart/ItemsInCart";
 const CartShopping = () => {
   const userOrderClothesShop = JSON.parse(localStorage.getItem("userOrderClothesShop"));
   const [order, setOrder] = useState(userOrderClothesShop || []);
-  // const [totalPrice, setTotalPrice] = useState(0);
   const countProduct = useSelector(store => store.count);
   const dispatch = useDispatch();
 
   useEffect(() => {
     const tempOrder = JSON.parse(localStorage.getItem("userOrderClothesShop")) || [];
-    // let tempTotalPrice = 0;
-    // tempOrder.forEach(element => {
-    //   tempTotalPrice += element.price * element.quantity;
-    // });
-    // setTotalPrice(Math.round(tempTotalPrice * 100) / 100);
-    // console.log("I am enter")
     setOrder(tempOrder);
   }, [countProduct]);
 
@@ -69,31 +62,14 @@ const CartShopping = () => {
     </div>
   );
 
-
   return (
     <div className={styles.cartShopping}>
-      {!order.length && emptyCart}
-      <ItemsInCart
+      {!!order.length ?
+        <ItemsInCart
           items={order}
           handleCountProduct={(e, id, count, k) => handleCountProduct(e, id, count, k)}
         />
-
-      {/*{userOrderClothesShop.map(product => {*/}
-      {/*  console.log(product)*/}
-      {/*  return (<ItemsInCart*/}
-      {/*    items={order}*/}
-      {/*    key={product.idProduct}*/}
-      {/*    idProduct={product.idProduct}*/}
-      {/*    titleProduct={product.titleProduct}*/}
-      {/*    quantity={product.quantity}*/}
-      {/*    price={product.price}*/}
-      {/*    handleCountProduct={(e, id, count, k) => handleCountProduct(e, id, count, k)}*/}
-      {/*  />)*/}
-      {/*})}*/}
-      {/*<li>Total price: {totalPrice} грн.</li>*/}
-      {/*{countProduct !== 0 && (<li>*/}
-      {/*  <button className={styles.btnShopping}>Оформити замовлення</button>*/}
-      {/*</li>)}*/}
+        : emptyCart}
       {!!order.length && totalRow}
     </div>
   );

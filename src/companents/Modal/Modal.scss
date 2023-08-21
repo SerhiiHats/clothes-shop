@@ -14,8 +14,10 @@
   border: 2px solid #3f3f3f;
   margin: auto;
   position: fixed;
-  max-width: 340px;
-  /*width: 100%;*/
+  //max-width: 340px;
+  max-width: 520px;
+  max-height: 90%;
+  overflow: auto;
   top: 0;
   bottom: 0;
   left: 0;
@@ -45,7 +47,6 @@
 .modal-btn-wrapper {
   display: flex;
   justify-content: space-around;
-  margin: 1rem;
 }
 
 .btn {

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {Outlet} from "react-router";
 import "./Layout.scss"
 import {Link, NavLink} from "react-router-dom";
@@ -7,18 +7,21 @@ import FooterMobile from "../companents/FooterMobile/FooterMobile";
 import CountProducts from "../companents/CountProducts/CountProducts";
 import {useDispatch, useSelector} from "react-redux";
 import {setShowModalAboutAC} from "../companents/About/aboutAction";
+import Modal from "../companents/Modal/Modal";
+import {setShowCartAction} from "../companents/CartShopping/setShowCartAction";
 
 const Layout = () => {
 
-  const [show, setShow] = useState(false);
   const setStyleNav = useSelector(store => store.setStyleNav);
+  const showCart = useSelector(store => store.showModalCart);
   const dispatch = useDispatch();
 
   const styleNav = (setStyleNav === false) ? "nav navMobileClose" :
     "nav navMobileOpen";
 
-  function handlerShowCart() {
-    setShow(!show);
+  const handlerModalCart = (e) => {
+    e.stopPropagation();
+    dispatch(setShowCartAction());
   }
 
   return (
@@ -30,9 +33,14 @@ const Layout = () => {
             <div className={"contact"}>Контакти</div>
           </NavLink>
           <div className={"about"} onClick={() => dispatch(setShowModalAboutAC())}>About</div>
-          <div onClick={handlerShowCart} className={"wrapCart"}>
+          <div onClick={() => dispatch(setShowCartAction())} className={"wrapCart"}>
             <CountProducts/>
-            {show && <CartShopping/>}</div>
+            {showCart &&
+              <Modal
+                text={<CartShopping/>}
+                closeHandler={handlerModalCart}
+              />}
+          </div>
         </nav>
 
       </header>
