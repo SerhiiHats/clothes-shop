@@ -1,10 +1,13 @@
 @import "../../../index";
 
+$marginBottomLastRow: 10px;
+
 table {
   width: 500px;
+  font-size: $size * 1.7;
+  color: $colorBg2;
 
   tbody {
-    color: $colorBg2;
     background-color: white;
 
     tr {
@@ -14,19 +17,43 @@ table {
       border-bottom: 2px solid #a9a9a9;
       padding: 10px 0;
 
-
       td {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+
+        .wrapImg {
+          margin-bottom: $marginBottomLastRow;
+
+          img {
+            width: 100%;
+          }
+        }
+
+        .titleProduct {
+          padding-left: 10px;
+          font-size: $size * 1.5;
+          font-weight: bold;
+          margin-bottom: $marginBottomLastRow;
+        }
+
+        .wrapDelete {
+          margin-bottom: $marginBottomLastRow;
+          width: 100%;
+          text-align: right;
+
+          svg {
+            cursor: pointer;
+          }
+        }
 
         .wrapButtons {
           width: 100%;
           text-align: center;
 
           .btnSetCount {
-            width: $size * 3.5;
-            height: $size * 3.5;
+            width: $size * 3;
+            height: $size * 3;
             border-radius: 5px;
             border: none;
             background-color: $colorActive4;
@@ -43,69 +70,14 @@ table {
             display: inline-block;
             min-width: $size * 4;
             text-align: center;
-            color: $colorBg2;
-            font-size: $size * 1.7;
+            font-weight: 500;
           }
         }
 
-        .wrapTitleProduct {
-          display: flex;
-          justify-content: space-between;
-
-          svg {
-
-            &:hover {
-              cursor: pointer;
-            }
-          }
+        .itemTotalPrice {
+          font-weight: 500;
         }
       }
     }
   }
 }
-
-//.wrapTotalPrice {
-//  display: flex;
-//  margin: $size 0;
-//
-//  .price {
-//    width: 40%;
-//    color: $colorBg2;
-//  }
-//
-//  .wrapButtons {
-//    border-radius: 5px;
-//    width: 30%;
-//
-//    .btnSetCount {
-//      width: $size * 3.5;
-//      height: $size * 3.5;
-//      border-radius: 5px;
-//      border: none;
-//      background-color: $colorActive4;
-//      user-select: none;
-//      font-size: $size * 1.8;
-//
-//      &:hover {
-//        background-color: darken($colorActive4, 10%);
-//        cursor: pointer;
-//      }
-//    }
-//
-//    .quantity {
-//      display: inline-block;
-//      min-width: $size * 4;
-//      text-align: center;
-//      color: $colorBg2;
-//      font-size: $size * 1.7;
-//    }
-//  }
-//
-//  .totalPrice {
-//    color: $colorBg2;
-//    font-weight: bold;
-//    text-align: right;
-//    width: 30%;
-//  }
-//}
-

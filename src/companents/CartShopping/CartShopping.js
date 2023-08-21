@@ -57,10 +57,10 @@ const CartShopping = () => {
 
   const totalRow = (
     <div>
-      <div>
-        <span>Повернутись до покупок</span>
-        <span>Загальна сума:
-          <span>{Math.round(totalPrice * 100) / 100}</span>грн.
+      <div className={styles.wrapTotalPrice}>
+        <span className={styles.comeback}>Повернутись до покупок</span>
+        <span className={styles.price}>Загальна сума:
+          <span> {Math.round(totalPrice * 100) / 100} грн.</span>
         </span>
       </div>
       <div>

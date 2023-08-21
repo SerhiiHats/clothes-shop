@@ -5,33 +5,47 @@
   top: 100px;
   right: 11px;
   padding: $size;
-  list-style: none;
-  display: flex;
   flex-direction: column;
-  background-color: lighten($colorBg3, 5%);
+  background-color: white;
   box-shadow: 0 0 10px 1px gray;
   z-index: 1;
+  color: $colorBg2;
+  font-size: $size * 1.8;
 
-  li {
-    width: 500px;
-    padding-top: 16px;
+  .wrapTotalPrice {
+    margin: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-    .btnShopping {
-      width: 100%;
-      padding: $size 0;
-      background-color: $colorActive4;
-      color: $colorDefault;
-      font-size: $size * 1.7;
+    .comeback {
+      font-size: $size * 1.4;
       font-weight: bold;
-      text-align: center;
-      border: none;
-      border-radius: 5px;
+      color: $colorActive;
+      cursor: pointer;
+    }
 
-      &:hover {
-        background-color: $colorActive;
-        box-shadow: 0 0 7px 0 gray;
-        cursor: pointer;
-      }
+    .price {
+      font-size: $size * 2;
+      font-weight: bold;
+    }
+  }
+
+  .btnShopping {
+    width: 100%;
+    padding: $size 0;
+    background-color: $colorActive4;
+    color: $colorDefault;
+    font-size: $size * 1.7;
+    font-weight: bold;
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+
+    &:hover {
+      background-color: $colorActive;
+      box-shadow: 0 0 7px 0 gray;
+      cursor: pointer;
     }
   }
 }
@@ -42,17 +56,5 @@
     position: unset;
     width: 93%;
     margin: 5px auto;
-
-
-    li {
-      width: 100%;
-
-      .btnShopping {
-
-        &:hover {
-
-        }
-      }
-    }
   }
 }
