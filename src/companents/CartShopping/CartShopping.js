@@ -49,8 +49,8 @@ const CartShopping = () => {
   const emptyCart = (<div>у Вас ще не має товарів у кошику</div>);
 
   const totalRow = (
-    <div>
-      <div className={styles.wrapTotalPrice}>
+    <div className={styles.wrapTotalPrice}>
+      <div className={styles.totalPrice}>
         <span className={styles.comeback}>Повернутись до покупок</span>
         <span className={styles.price}>Загальна сума:
           <span> {Math.round(totalPrice * 100) / 100} грн.</span>
@@ -64,12 +64,14 @@ const CartShopping = () => {
 
   return (
     <div className={styles.cartShopping}>
-      {!!order.length ?
-        <ItemsInCart
-          items={order}
-          handleCountProduct={(e, id, count, k) => handleCountProduct(e, id, count, k)}
-        />
-        : emptyCart}
+      <div className={styles.wrapItemsTable}>
+        {!!order.length ?
+          <ItemsInCart
+            items={order}
+            handleCountProduct={(e, id, count, k) => handleCountProduct(e, id, count, k)}
+          />
+          : emptyCart}
+      </div>
       {!!order.length && totalRow}
     </div>
   );

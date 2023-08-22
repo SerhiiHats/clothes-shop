@@ -7,49 +7,103 @@
   color: $colorBg2;
   font-size: $size * 1.8;
 
-  .wrapTotalPrice {
-    margin: 20px 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    .comeback {
-      font-size: $size * 1.4;
-      font-weight: bold;
-      color: $colorActive;
-      cursor: pointer;
-    }
-
-    .price {
-      font-size: $size * 2;
-      font-weight: bold;
-    }
+  .wrapItemsTable {
+    max-height: calc(84vh - $size * 2 - (20px + 88px));
+    overflow: auto;
   }
 
-  .btnShopping {
+  .wrapTotalPrice {
     width: 100%;
-    padding: $size 0;
-    background-color: $colorActive4;
-    color: $colorDefault;
-    font-size: $size * 1.7;
-    font-weight: bold;
-    text-align: center;
-    border: none;
-    border-radius: 5px;
 
-    &:hover {
-      background-color: $colorActive;
-      box-shadow: 0 0 7px 0 gray;
-      cursor: pointer;
+    .totalPrice {
+      margin: $size * 2 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .comeback {
+        font-size: $size * 1.4;
+        font-weight: bold;
+        color: $colorActive;
+        cursor: pointer;
+      }
+
+      .price {
+        font-size: $size * 2;
+        font-weight: bold;
+      }
+    }
+
+    .btnShopping {
+      width: 100%;
+      padding: $size 0;
+      background-color: $colorActive4;
+      color: $colorDefault;
+      font-size: $size * 1.7;
+      font-weight: bold;
+      text-align: center;
+      border: none;
+      border-radius: 5px;
+
+      &:hover {
+        background-color: $colorActive;
+        box-shadow: 0 0 7px 0 gray;
+        cursor: pointer;
+      }
     }
   }
 }
 
 @media (max-width: 600px) {
-
   .cartShopping {
-    position: unset;
-    width: 93%;
-    margin: 5px auto;
+
+    .wrapItemsTable {
+      max-height: calc(80vh - $size * 2 - (20px + 88px));
+    }
+
+    .wrapTotalPrice {
+
+      .totalPrice {
+
+        .price {
+          font-size: $size * 1.8;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 580px) {
+  .cartShopping {
+
+    .wrapItemsTable {
+      max-height: calc(80vh - $size * 2 - (20px + 110px));
+    }
+
+    .wrapTotalPrice {
+
+      .totalPrice {
+
+        .price {
+          font-size: $size * 1.8;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 340px) {
+  .cartShopping {
+    padding: 0;
+
+    .wrapTotalPrice {
+
+      .totalPrice {
+
+        .price {
+          font-size: $size * 1.5;
+        }
+      }
+    }
   }
 }

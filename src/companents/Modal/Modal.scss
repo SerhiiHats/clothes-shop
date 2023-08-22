@@ -14,10 +14,8 @@
   border: 2px solid #3f3f3f;
   margin: auto;
   position: fixed;
-  //max-width: 340px;
   max-width: 520px;
-  max-height: 90%;
-  overflow: auto;
+  max-height: 84vh;
   top: 0;
   bottom: 0;
   left: 0;
@@ -57,4 +55,41 @@
 
 .btn:hover {
   background-color: white;
+}
+
+@media (max-width: 600px) {
+  .modal {
+    max-width: 500px;
+    max-height: 80vh;
+  }
+}
+
+@media (max-width: 580px) {
+  .modal {
+    max-width: 450px;
+  }
+}
+
+@media (max-width: 500px) {
+  .modal {
+    max-width: 400px;
+  }
+}
+
+@media (max-width: 450px) {
+  .modal {
+    max-width: 350px;
+  }
+}
+
+@media (max-width: 400px) {
+  .modal {
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 340px) {
+  .modal {
+    max-width: 250px;
+  }
 }

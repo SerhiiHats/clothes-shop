@@ -12,7 +12,6 @@ const Modal = (props) => {
         {text}
         <div className={"modal-btn-wrapper"}>
           {action}
-          {/*<button className={"btn"} onClick={closeHandler}>Close</button>*/}
         </div>
       </div>
     </Portal>
