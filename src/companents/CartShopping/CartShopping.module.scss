@@ -14,6 +14,7 @@
 
   .wrapTotalPrice {
     width: 100%;
+    border-top: 3px ridge $colorActive4;
 
     .totalPrice {
       margin: $size * 2 0;
